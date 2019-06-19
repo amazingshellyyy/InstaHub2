@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <!-- Google Analytics tracking code-->
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137853297-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137853297-1');
+        </script>
+
+        <title>InstaHub</title>
+
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+        <!-- font awesome -->
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/superslide/superslides.css">
+
+        <link rel="stylesheet" href="css/fancybox/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/nivo-lightbox/nivo-lightbox.css">
+        <link rel="stylesheet" href="css/themes/default/default.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animate/animate.css">
+        <link rel="stylesheet" href="css/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="css/owl-carousel/owl.transitions.css">
+	<link rel="icon" href="images/iconLogo.png">
+
+        <style>
+			body {font-family: Arial, Helvetica, sans-serif;}
+			* {box-sizing: border-box;}
+
+		
+			/* Full-width input fields */
+			input[type=text], input[type=password], input[type=email], input[type=tel], input[type=number]  {
+				display: block;
+ 
+					width: 500px;
+				 padding: 15px;
+				 margin:auto;
+				 margin-bottom: 20px;
+				 border: none;
+				 background: #f1f1f1;
+				 
+			 }
+
+			input[type=text]:focus, input[type=password]:focus {
+			  background-color: #ddd;
+				outline: none;
+				margin:auto;
+				width: 500px;
+				padding: 15px;
+				margin:auto;
+				margin-bottom: 20px;
+				border: none;
+				background: #f1f1f1;
+			}
+			textarea{
+					margin:auto;
+
+				padding: 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin:auto;
+			}
+			
+			/* Set a style for all buttons */
+			button {
+				background-color: #4CAF50;
+			  color: white;
+			  padding: 14px 20px;
+				margin-left: 850px;
+				
+			  border: none;
+			  cursor: pointer;
+			  width: 250px;
+				opacity: 0.9;
+				border-radius: 0.8rem;	
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin:auto;	
+				margin-top:50px;
+				margin-bottom: 50px;
+
+		
+			}
+
+			/*button:hover {
+			  opacity:1;
+			}*/
+
+			/* Extra styles for the cancel button */
+			/*.cancelbtn {
+			  padding: 14px 20px;
+			  background-color: #f44336;
+			}*/
+
+			/* Float cancel and signup buttons and add an equal width */
+			.cancelbtn, .signupbtn {
+			  margin: 0 auto;
+			  width: 100%;
+			}
+
+			/* Add padding to container elements */
+			.container {
+			  padding: 16px;
+			}
+
+			/* The Modal (background) */
+			.modal {
+			  /*display: none; */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  left: 0;
+			  top: 0;
+			  width: 100%; /* Full width */
+			  height: 100%; /* Full height */
+			  overflow: auto; /* Enable scroll if needed */
+			  background-color: #2893cb;
+			}
+
+			/* Modal Content/Box */
+			.modal-content {
+			  background-color: #fefefe;
+			  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+			  border: 1px solid #888;
+			  width: 80%; /* Could be more or less, depending on screen size */
+			  padding: 3rem;
+			}
+
+			/* Style the horizontal ruler */
+			hr {
+			  border: 1px solid #f1f1f1;
+			  margin-bottom: 25px;
+			}
+			 
+			/* The Close Button (x) */
+			/*.close {
+			  position: absolute;
+			  right: 35px;
+			  top: 15px;
+			  font-size: 40px;
+			  font-weight: bold;
+			  color: #f1f1f1;
+			}
+
+			.close:hover,
+			.close:focus {
+			  color: #f44336;
+			  cursor: pointer;
+			}*/
+
+			/* Clear floats */
+			.clearfix::after {
+			  content: "";
+			  clear: both;
+			  display: table;
+			}
+
+			/* Change styles for cancel button and signup button on extra small screens */
+			@media screen and (max-width: 300px) {
+			  .cancelbtn, .signupbtn {
+			     width: 100%;
+			  }
+			}
+			</style>
+
+
+		<style>
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 60px;
+		  height: 34px;
+		}
+
+		.switch input { 
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #4CAF50;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 26px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		input:checked + .slider {
+		  background-color: #2196F3;
+		}
+
+		input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(26px);
+		  -ms-transform: translateX(26px);
+		  transform: translateX(26px);
+		}
+
+		/* Rounded sliders */
+		.slider.round {
+		  border-radius: 34px;
+		}
+
+		.slider.round:before {
+		  border-radius: 50%;
+		}
+		</style>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+	  
+<div id="id01" class="modal">
+  <!--form class="modal-content" id="postForm" onsubmit="return validateForm()" enctype="text/plain"-->
+    <!--action="/moveToDB.php"-->
+    <form id="postForm" name="commercialForm">
+    <div class="container-fluid" id="typeSelector">
+  		<h1>Pre-Order (Early Bird Special)</h1>
+  		<div class="row" style="text-align: center">
+				<h1 style="margin-bottom:40px; font-size:40px">Residential</h1>
+	  			<!--label class="switch">
+				  <input type="checkbox" name="switchbox" value="users" id="switchbox">
+	  			 
+				  <span class="slider round"></span>
+				</label>
+			<h2 style="display:inline">Commercial</h2-->
+  		</div>
+  	</div>
+
+    <div class="container-fluid">
+
+      <!-- Commercial form-->
+      <div class="row" id="businessForm" style="display:none">
+      <form name="commercialForm">
+					<input type="text" name="firstname" placeholder="First Name"></b>
+					<input type="text" name="lastname" placeholder="Last Name"></b>
+					<input type="text" name="organization" placeholder="Organization"></b>
+					<input type="text" name="title" placeholder="Title">
+					<input type="email" name="email" required placeholder="Email">
+                <!-- Get a Quote Button-->
+    
+
+      </form>
+      </div>
+
+
+      <!-- Residential form-->
+      <div class="row" id="userForm">
+	<form name="residentialForm">
+
+		<input type="text" name="firstname" placeholder="First Name*" required></b>
+		<input type="text" name="lastname" placeholder="Last Name*" required></b>
+		<input type="number" name="age" placeholder="Age*" required></b>
+		<input type="text" name="title" placeholder="Title*"required>
+		<input type="email" name="email" placeholder="Email*"required>
+		<input type="text" name="state" placeholder="State of Residence? (e.g. CA, PA, TX)*"required>
+		<textarea type="text" name="feedback" placeholder="Any questions or comments?"cols="65" rows="8"  required ></textarea>
+	  
+	  <!-- -Pre Order button-->
+
+	  <button  type="submit" id="myButton">Get a Quote</button>
+
+	</form>
+	
+      </div>
+      </div>
+	<div id="msg" style="display: none">Thank you!</div>
+      <!--div class="row">
+      	  <label for="state" class="col-sm-3"><b>State of Residence? (e.g. CA, PA, TX)*</b>
+      	  	<input type="text" name="state" required>
+      	  </label>
+      </div-->
+  </form>
+</div>
+
+
+<script type="text/javascript">
+	var users = document.getElementById('userForm');
+	var business = document.getElementById('businessForm');
+	var switchbox = document.getElementById('switchbox');
+	var submitbtn = document.getElementById('submitbtn');
+
+	switchbox.value = 'users';
+	document.forms["postForm"]["firstname"].value = ' ';
+	document.forms["postForm"]["lastname"].value = ' ';
+	document.forms["postForm"]["organization"].value = ' ';
+	document.forms["postForm"]["title"].value = ' ';
+
+	switchbox.addEventListener('click', function(e){
+		if(switchbox.checked){
+			switchbox.value = 'business';
+			business.style.display = 'block';
+			users.style.display = 'none';
+			submitbtn.style.backgroundColor = "#2196F3";
+
+			document.forms["postForm"]["firstname"].value = ' ';
+			document.forms["postForm"]["lastname"].value = ' ';
+			document.forms["postForm"]["age"].value = 0;
+			document.forms["postForm"]["title"].value = ' ';
+			
+
+		}
+		else{
+			switchbox.value = 'users';
+			business.style.display = 'none';
+			users.style.display = 'block';
+			submitbtn.style.backgroundColor = "#4CAF50";
+
+			document.forms["postForm"]["firstname"].value = ' ';
+			document.forms["postForm"]["lastname"].value = ' ';
+			document.forms["postForm"]["organization"].value = ' ';
+			document.forms["postForm"]["title"].value = ' ';
+		}
+	});
+
+	function validateForm(){
+		var formArr = [];
+		formArr.push(document.forms["postForm"]["switchbox"].value);
+		formArr.push(document.forms["postForm"]["firstname"].value);
+		formArr.push(document.forms["postForm"]["lastname"].value);
+		formArr.push(document.forms["postForm"]["age"].value);
+		formArr.push(document.forms["postForm"]["title"].value);
+		// formArr.push(document.forms["postForm"]["email"].value);
+		// formArr.push(document.forms["postForm"]["phonenumber"].value);
+		// formArr.push(document.forms["postForm"]["preferredContactMethod"].value);
+		// formArr.push(document.forms["postForm"]["state"].value);
+		// formArr.push(document.forms["postForm"]["oneWordDescribe"].value);
+		// formArr.push(document.forms["postForm"]["referral"].value);
+		// formArr.push(document.forms["postForm"]["feedback"].value);
+		document.forms["postForm"]["firstname"].value = ' ';
+		document.forms["postForm"]["lastname"].value = ' ';
+		formArr.push(document.forms["postForm"]["organization"].value);
+		formArr.push(document.forms["postForm"]["title"].value);
+
+		for(var i in formArr){
+			if(formArr[i] == ''){
+				console.log("formArr[i]",formArr[i]);
+				console.log("i",i);
+				console.log("thing returned bad", formArr[i], i);
+				return false;
+			}
+		}
+		return true;
+	}
+	
+
+</script>
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery/jquery.js"></script>
+
+        <script src="js/script.js"></script>
+
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/nivo-lightbox/nivo-lightbox.min.js"></script>
+        <script src="js/owl-carousel/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBL6gbhsnCEt4FS9D6BBl3mZO1xy-NcwpE&sensor=false"></script>
+        <script src="js/jquery-easing/jquery.easing.1.3.js"></script>
+        <script src="js/superslide/jquery.superslides.js"></script>
+        <script src="js/wow/wow.min.js"></script>
+
+	<script>
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbzaE8PPMcbxcua8vsGML-PoTODDYqNM5SzIHG_1mSrs2bbmA7ks/exec'
+	  const form = document.forms['residentialForm']
+
+	    form.addEventListener('submit', e => {
+			e.preventDefault()
+			fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(response =>
+                        //console.log('Success!', response)
+                        window.location.href="/thankyou")
+			.catch(error => console.error('Error!', error.message))
+                        })
+			/*redirect to thankyou web*/
+			/*document.getElementById("myButton").onclick = function () {
+  		location.href = "/thankyou";
+			   };*/
+</script>
+
+<!--script>
+	  const scriptURL2 = 'https://script.google.com/macros/s/AKfycbx0946UuXp9GE9asukFi-5bo7iVf5FfDYiUKBOLPQLvXhnDCDU/exec'
+	  const formCommercial = document.forms['commercialForm']
+
+	  formCommercial.addEventListener('submit', e => {
+	  e.preventDefault()
+	  fetch(scriptURL2, { method: 'POST', body: new FormData(form)})
+	  .then(response => console.log('Success!', response))
+	  .catch(error => console.error('Error!', error.message))
+	  })
+		 
+
+</script-->
+
+
+
+	<!--script>
+	  //commercial form
+	  //var $form = $('form#postForm'),
+	  var $form = $('form#commercialForm'),
+	  url = 'https://script.google.com/macros/s/AKfycbzaE8PPMcbxcua8vsGML-PoTODDYqNM5SzIHG_1mSrs2bbmA7ks/exec'
+
+	  $('#submit-form-commercial').on('click', function(e) {
+	  e.preventDefault();
+	  var jqxhr = $.ajax({
+	  url: url,
+	  method: "GET",
+	  dataType: "json",
+	  data: $form.serializeObject()
+	  }).success(
+	  // do something
+	  //document.getElementById("msg").style.visibility = "block";
+	  alert("Congratulation!")
+	  );
+	  })
+
+	</script-->
+
+	<!--script>
+	  //residential form
+	  //var $form = $('form#postForm'),
+	  var $form = $('form#residentialForm'),
+	  url = 'https://script.google.com/macros/s/AKfycbx0946UuXp9GE9asukFi-5bo7iVf5FfDYiUKBOLPQLvXhnDCDU/exec'
+
+	  $('#submit-form-residential').on('click', function(e) {
+	  e.preventDefault();
+	  var jqxhr = $.ajax({
+	  url: url,
+	  method: "GET",
+	  dataType: "json",
+	  data: $form.serializeObject()
+	  }).success(
+	  // do something
+	  alert("Congratulation!");
+	  //document.getElementById("msg").style.visibility = "block";
+	  );
+	  })
+
+	</script-->
+
+	
+    </body>
+</html>

@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lighting Waste Calculator</title>
+  <!--API-->
+  <script src="apiLinks.js"></script>
+  <!--dropdown menu -->
+  <!--  <link rel="stylesheet" type="text/css" media="screen" href="fontawesome/css/font-awesome.min.css">  -->
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!--bootstrap menus-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+  
+  <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137853297-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137853297-1');
+</script>
+
+<style>
+/*start geolocation style*/
+#loc{
+  width: 200%;
+  height: 50px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 2.0rem;
+
+}
+#cal-icon{
+  display:inline-block;
+
+}
+#location{
+  position: relative;
+  right:5%;
+}
+/*end geolocation style*/
+
+/****start slider style*****/
+
+.selectpicker {
+  display: block;
+  margin: 0 auto;
+  float:center;
+  margin-bottom: 20px;
+  
+  }
+  span{
+      text-align:center;
+  }
+
+  
+  .day{
+      margin-left: 40px;
+      font-size: 20px;
+      font-weight: bold;
+  }
+  
+    /* The slider itself */
+    
+    /* The slider itself */
+    .sliderForCom, .sliderForRes {
+      -webkit-appearance: none;  /* Override default CSS styles */
+      appearance: none;
+      width: 65%; /* Full-width */
+      height: 10px; /* Specified height */
+      background: #c4c4c483;
+
+      ; /* Grey background */
+      outline: none; /* Remove outline */
+      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+      transition: opacity .2s;
+      margin-bottom: 30px;
+    }
+    
+    /* Mouse-over effects */
+    .sliderForCom:hover, .sliderForRes:hover {
+      opacity: 1; /* Fully shown on mouse-over */
+    }
+    
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+    .sliderForCom::-webkit-slider-thumb, .sliderForRes::-webkit-slider-thumb  {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background:#44add5; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+      border-radius: 0.9rem;
+    }
+    
+    .sliderForCom::-moz-range-thumb , .sliderForRes::-moz-range-thumb {
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background:#44add5; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+/****end slider style****/
+
+
+
+/*start drop down menu */
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+  height:100%;
+}
+#header{
+    font-size: 60px;
+    padding-top:100px;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  }
+body{
+    background-color: #337ab7;
+    position: relative;
+    height:100%;
+  }
+
+
+  /*commercial*/
+  .stateForCom ,.roomType ,#numOfRoomForCom, .bulbListForCom,
+  #numOfBulbForCom,#numOfDayForCom,#dataForCom,#dataForCom1
+  {
+    display: none;
+
+  }
+  .roomTypeOption ,.numOfRoomOption,#numOfBulbForComOption,#removeForCom,#removeForRes,.bulbListForComOption
+  {
+    display: inline-block;
+
+  }
+
+  /*residential*/
+  #stateForRes, #numOfRoomForRes , #bulbListForRes
+  ,#numOfDayForRes,#rightForRes1
+
+  {
+    display: none;
+  }
+#hideRoom, #hideBulb, #addRowForCom,#addRowForRes,.remove,#secondRow{
+    display: none;
+
+  }
+
+  #resState,#hideRoomForRes{
+    display: none;
+  }
+  #commercial1,#residential1{
+    display:none;
+  }
+
+  #elecForCom, #elecForRes{
+    color:#ff0000;
+    font-size: 45px;
+    font-weight: bold;
+  }
+
+  .btn-primary{
+    background-color:#44add5;
+    border-color: #44add5;
+    
+
+  }
+.changeColorForSelc{
+
+  background-color:#425ff4;
+  border-color:#425ff4;
+
+}
+
+  .bootstrap-select>.dropdown-toggle #choice2{
+    display: none;
+
+
+  }
+  #tableForCom{
+    width:80%;
+    padding:0;
+    margin:0;
+  }
+  
+  #tableForRes{
+    width:80%;
+    padding:0;
+    margin:0;
+  }
+
+</style>
+
+<style>
+
+.remove {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+tr:hover {
+    cursor: move;
+}
+
+
+
+/****************************calculator menus layout start *********************************/
+#choices{
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  height:70%;
+}
+.stateForCom,.stateForRes{
+  
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  top:30px;
+}
+#firstRowForCom{
+  position: relative;
+  left:20%;
+  top: 0;
+}
+
+#resState{
+  
+  position: relative;
+  left:20%;
+  top:30px;
+}
+#hideRoomForRes{
+  position: relative;
+  left:20%;
+  top:20px;
+  
+
+
+}
+#secondRow{
+  position: relative;
+  top:20px;
+  left:20%;
+ 
+
+}
+.comSlider,.resSlider{
+position: relative;
+top:10%;
+left:20%;
+}
+
+#addRowForCom,#addRowForRes{
+  position: relative;
+  cursor: pointer;
+ /*top:15px;*/ 
+}
+
+/*operating days/year*/
+#comSlideVal,#resSlideVal{
+  position: relative;
+  top:0;
+  left:20%;
+}
+
+/*subsection menu for menus*/
+  #subsection{
+    position: absolute;
+    top:5%;
+    bottom:5%;
+    left:3%;
+    width:94%;
+    height: 90%;
+    background-color: #fff;
+    border-radius: 1.0rem;
+  }
+/*aside menu for results*/
+  #sideForCom{
+    display:none;
+    position: absolute;
+    top:0;
+    width: 52%;
+    height: 100%;
+    right: -57%; 
+    background-color: white;
+    border-radius: 1.0rem;
+  }
+  #sideForRes{
+    display:none;
+    position: absolute;
+    top:0;
+    right: -57%; 
+    width: 52%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1.0rem;
+  }
+  /*tables*/
+  td{
+
+  text-align: center;
+  padding-bottom: 20px;  
+    }
+
+
+/****************************calculator menus layout end *********************************/
+
+/*stateForCom styling*/   
+.bulbListForRes,.roomType,.bulbListForCom,
+#resBulbList1,.roomTypeOption,.bulbListForComOption
+{
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  width: 160px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+#comNumOfBulb,#resNumOfBulb,
+#resNumOfBulb1,#comNumOfBulb1
+{
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  width: 120px;
+  height: 50px;
+  margin-right:10px;
+
+}
+#removeForCom,#removeForRes{
+  margin-left: 10px;
+  cursor: pointer;
+}
+#numOfRoom,.numOfRoomOption{
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  width: 100px;
+  height: 50px;
+  margin-right:20px;
+}
+#resNumOfHour,#resNumOfHour1
+{
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  width: 160px;
+  height: 50px;
+  
+}
+
+/*image buttons style*/
+.commercial,.residential
+{
+  position: relative;
+  width: 20%;
+  height: 50%;
+  margin-bottom:20px;
+  padding: 0 10px;
+  text-align: left;    
+  font-size: 16px;
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  margin-right:30px;
+  }
+  .commercial:hover,.residential:hover
+  ,.commercialAfterIcon:hover,
+  .residentialAfterIcon:hover{
+
+    background:#337ab7;
+    }
+
+.commercialAfterIcon,.residentialAfterIcon
+{
+  position: relative;
+  width: 150px;
+  height: 50px;
+  padding: 0 10px;
+  text-align: left;        
+  font-size: 16px;
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+}
+.commercial:hover,.residential:hover{
+  background:#59a1e0da;    
+}
+
+.commercial img 
+{  
+  left: 18%;
+  top: 10%;
+  position: absolute;
+}
+.residential img 
+{  
+  left: 15%;
+  top: 10%;
+  position: absolute;
+}
+.commercial h1,.residential h1
+{     position: absolute;
+
+  left: 20%;
+  top: 75%;
+}
+
+.commercialAfterIcon h6,.residentialAfterIcon h6
+{ 
+  position: absolute;
+  left: 20%;
+  top: 32%;
+}
+#myChart,#myChart1{
+position: relative;
+top:50px;
+}
+
+/*electrictiy waste result*/
+#special,#special1{
+  position: relative;
+  top:30px;
+  margin-left:45px;
+
+}
+#dataForRes,#dataForCom{
+  position: relative;
+  top:15%;
+  margin-left:45px;
+
+}
+
+.box1, .box2, .box3
+{
+  display:inline-block;
+  height: 170px;
+  width: 28%;
+  z-index: 10;
+  border-color: black;
+  border-radius:0.8rem;
+  border: 2px solid rgb(148, 148, 148);
+  border-radius: 50px;
+  background: #fff;
+  margin:1%;
+}
+
+.box1 img,.box2 img,.box3 img{
+  position:relative;
+  top:100%;
+  left:23%; 
+}
+/*only second box was a little off*/
+
+.box1 img{
+  position:relative;
+  top:10px;
+  
+}
+.box1 h6,.box2 h6,.box3 h6{
+  position:relative;
+  top:20px;
+  left:5px;
+  
+}
+#dataForCom h2,#dataForRes h2{
+  position: relative;
+  top: -50px;
+  
+}
+.iconFont{
+
+  font-size: 2vw;
+}
+
+#addRowForCom{
+  position: relative;
+  left:40%;
+  top:-10px;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  background-color: rgb(148, 148, 148);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+
+}
+#addRowForRes{
+  position: relative;
+  left:50%;
+  top:-10px;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  background-color: rgb(148, 148, 148);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+
+}
+.boxContainer{
+  position: relative;
+  top:-20px;
+}
+</style>
+
+</head>
+
+<body >
+  
+<section >
+  <div id = "subsection">   
+    <h1 id = "header">Lighting Waste Calculator</h1>
+    <!--div for first screen -->
+    <div class="choice" id="choices">
+
+      <!--select commercial or residential-->
+      <h2 id ="welcomeHeader"></h2><br><br>
+      
+      <div id="location">
+      <!--map icon-->
+      <i id = "cal-icon" class="fas fa-map-marker-alt fa-3x" ></i>      
+      <!--block for location-->
+      <form style=" display:inline-block;" >
+        <div  type="text" id="loc" name="fname"  value=""><span id="demo"></span>
+        </div>
+      </form></div><br><br><br>
+      <!--commercial icon-->
+      <button class="commercial" value ="COM" id = "commercial">               
+      <div ><img src="img/city.svg" alt=""   height="63%" width="63%"></div>
+      <h1 class = "iconFont">Commercial</h1>
+        </button>
+      <!--residential icon-->
+      <button class="residential" value ="RES" id = "residential">               
+        <div ><img src="img/home.svg" alt=""   height="63%" width="63%"></div>
+        <h1 class = "iconFont">Residential</h1>
+        </button>
+
+    </div> 
+<!--the frist row buttons-->
+<div id="firstRowForCom">     
+        <button class="commercialAfterIcon"   value ="COM" id = "commercial1"   ><h6>Commercial</h6> </button>
+        <button class="residentialAfterIcon"  value ="RES"   id = "residential1"   ><h6>Residential</h6> </button>
+        
+  <select required  class="stateForCom" id="comState" name ="stateForCom" data-style="btn-primary" >
+        <option class="Not Specified" selected> State</option>
+        <option id ="alComPrice" class="dropdown-item" href="#" value="1" data-subtext=" ">AL</option>
+        <option id ="akComPrice" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
+        <option id ="azComPrice" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
+        <option id ="arComPrice" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
+        <option id ="caComPrice" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
+        <option id ="coComPrice" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
+        <option id ="ctComPrice" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
+        <option id ="deComPrice" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
+        <option id ="flComPrice" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
+        <option id ="gaComPrice" class="dropdown-item" href="#" value="10"  data-subtext=" ">GA</option>
+        <option id ="hiComPrice" class="dropdown-item" href="#" value="11"  data-subtext=" ">HI</option>
+        <option id ="idComPrice" class="dropdown-item" href="#" value="12"  data-subtext=" ">ID</option>
+        <option id ="ilComPrice" class="dropdown-item" href="#" value="13"  data-subtext=" ">IL</option>
+        <option id ="inComPrice" class="dropdown-item" href="#" value="14"  data-subtext=" ">IN</option>
+        <option id ="iaComPrice" class="dropdown-item" href="#" value="15"  data-subtext=" ">IA</option>
+        <option id ="ksComPrice" class="dropdown-item" href="#" value="16"  data-subtext=" ">KS</option>
+        <option id ="kyComPrice" class="dropdown-item" href="#" value="17"  data-subtext=" ">KY</option>
+        <option id ="laComPrice" class="dropdown-item" href="#" value="18"  data-subtext=" ">LA</option>
+        <option id ="meComPrice" class="dropdown-item" href="#" value="19"  data-subtext=" ">ME</option>
+        <option id ="mdComPrice" class="dropdown-item" href="#" value="20"  data-subtext=" ">MD</option>
+        <option id ="maComPrice" class="dropdown-item" href="#" value="21"  data-subtext=" ">MA</option>
+        <option id ="miComPrice" class="dropdown-item" href="#" value="22"  data-subtext=" ">MI</option>
+        <option id ="mnComPrice" class="dropdown-item" href="#" value="23"  data-subtext=" ">MN</option>
+        <option id ="msComPrice" class="dropdown-item" href="#" value="24"  data-subtext=" ">MS</option>
+        <option id ="moComPrice" class="dropdown-item" href="#" value="25"  data-subtext=" ">MO</option>
+        <option id ="mtComPrice" class="dropdown-item" href="#" value="26"  data-subtext=" ">MT</option>
+        <option id ="neComPrice" class="dropdown-item" href="#" value="27"  data-subtext=" ">NE</option>
+        <option id ="nvComPrice" class="dropdown-item" href="#" value="28"  data-subtext=" ">NV</option>
+        <option id ="nhComPrice" class="dropdown-item" href="#" value="29"  data-subtext=" ">NH</option>
+        <option id ="njComPrice" class="dropdown-item" href="#" value="30"  data-subtext=" ">NJ</option>
+        <option id ="nmComPrice" class="dropdown-item" href="#" value="31"  data-subtext=" ">NM</option>
+        <option id ="nyComPrice" class="dropdown-item" href="#" value="32"  data-subtext=" ">NY</option>
+        <option id ="ncComPrice" class="dropdown-item" href="#" value="33"  data-subtext=" ">NC</option>
+        <option id ="ndComPrice" class="dropdown-item" href="#" value="34"  data-subtext=" ">ND</option>
+        <option id ="ohComPrice" class="dropdown-item" href="#" value="35"  data-subtext=" ">OH</option>
+        <option id ="okComPrice" class="dropdown-item" href="#" value="36"  data-subtext=" ">OK</option>
+        <option id ="orComPrice" class="dropdown-item" href="#" value="37"  data-subtext=" ">OR</option>
+        <option id ="paComPrice" class="dropdown-item" href="#" value="38"  data-subtext=" ">PA</option>
+        <option id ="riComPrice" class="dropdown-item" href="#" value="39"  data-subtext=" ">RI</option>
+        <option id ="scComPrice" class="dropdown-item" href="#" value="40"  data-subtext=" ">SC</option>
+        <option id ="sdComPrice" class="dropdown-item" href="#" value="41"  data-subtext=" ">SD</option>
+        <option id ="tnComPrice" class="dropdown-item" href="#" value="42"  data-subtext=" ">TN</option>
+        <option id ="txComPrice" class="dropdown-item" href="#" value="43"  data-subtext=" ">TX</option>
+        <option id ="utComPrice" class="dropdown-item" href="#" value="44"  data-subtext=" ">UT</option>
+        <option id ="vtComPrice" class="dropdown-item" href="#" value="45"  data-subtext=" ">VT</option>
+        <option id ="vaComPrice" class="dropdown-item" href="#" value="46"  data-subtext=" ">VA</option>
+        <option id ="waComPrice" class="dropdown-item" href="#" value="47"  data-subtext=" ">WA</option>
+        <option id ="wvComPrice" class="dropdown-item" href="#" value="48"  data-subtext=" ">WV</option>
+        <option id ="wiComPrice" class="dropdown-item" href="#" value="49"  data-subtext=" ">WI</option>
+        <option id ="wyComPrice" class="dropdown-item" href="#" value="50"  data-subtext=" ">WY</option>
+  </select >
+  <button id="addRowForCom">Add Building</button>
+
+  </div>
+
+
+  <!--button order for commercial-->
+  <!--  
+  1.state
+  2. add button, roomtypes ,number of room, bulbtypes, number of bulbs, delete button
+  3.slide
+  4.results display on the right side -->
+<!-- 
+
+  <td style="display: inline-block;">
+        <i class="fas fa-plus-circle fa-2x" style="color:rgb(148, 148, 148);" ></i>
+              </td>
+-->
+  <!--1. state --> 
+  <div id="secondRow">  
+    <table id ="tableForCom">
+      <tbody style="width: 126%; height:auto; display:table;">
+          <tr>
+            <!--2. room type -->
+            <td style="display: inline-block;">
+              <select class="roomType" text="hi" id="comRoomType"  data-style="btn-primary" >
+                  <option class="Not Specified" selected> Room Type</option>
+                  <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom </option> 
+                  <option class="dropdown-item" href="#" value="10.32" data-subtext="10.32 Hours Wasted">Classroom</option>  
+                  <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>  
+                  <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option> 
+                  <option class="dropdown-item" href="#" value="7.56"  data-subtext="7.56 Hours Wasted">Office, Private</option>
+                  <option class="dropdown-item" href="#" value="2.4"   data-subtext="2.4 Hours Wasted">Office, Open</option>
+                  <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>
+                  <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>   
+                  <option class="dropdown-item" href="#" value="10.68" data-subtext="10.68 Hours Wasted">Warehouse</option>   
+              </select >
+
+              </td>
+
+              <!--3. number of room-->  
+              <td style="display: inline-block;">
+                <div  required style="width:100%;"   id="numOfRoomForCom">        
+                  <input type="text" name="nubmer" id="numOfRoom" placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+              </td>
+              <!--4. bulbs type -->   
+              <td style="display: inline-block;">
+                <select required class="bulbListForCom"  id="comBulbList" data-style="btn-primary" >
+                    <option class="Not Specified" selected>  Bulb Type</option>
+                    <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option> 
+                    <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>  
+                    <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option> 
+                    <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>
+                    <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>   
+                </select>
+              </td>
+
+              <!--5. number of bulbs-->    
+              <td style="display: inline-block;">
+                <div   id="numOfBulbForCom" >   
+                  <input required type="text" name="nubmer" id="comNumOfBulb"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+              </td>
+
+              <!--6. delete button-->    
+              <td style="display: inline-block;"> 
+                <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148); "></i>
+              </td>
+              
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--6. slider-->
+  <div class="comSlider" id ="numOfDayForCom">
+      
+    <input  class = "sliderForCom"type="range" min="1" max="365"value ='0' id="comSlideId"step="1">
+    <br><span id="comSlideVal" class= "day" style="margin-right:50px;">1 Operating Day/Year</span>
+
+  </div>
+
+<!--7. Results display-->    
+  <aside>
+    <div id="sideForCom">   
+      <h2 id= "special">Electricity Waste = <span id="elecForCom"></span></h2>
+      <canvas id="myChart" width="30%" height="18%"></canvas>
+
+      <!--CO2 image icon-->
+      <div class="rightForCom"id= "dataForCom">
+          <h2>CO2 Waste = <span id="co2wasteForCom"></span></h2>
+          <!--<h4>This CO2 waste is equivalent to: </h4> -->
+          <!--little box for each co2 icon-->   
+          <div class="boxContainer">
+          <div class = "box1">
+            <img src="img/mobile-phone.png" alt="lighting waste calculator" width="48%" height="48%"/><h6>smartphones charged:<span id="phoneChargesForCom"></span></h6>
+          </div>
+
+          <div class = "box2">
+            <img src="img/vehicles.gif" alt="lighting waste calculator" width="48%" height="48%"/> <h6>miles driven by vehicle:<span id="milesDrivenForCom"></span></h6>
+          </div>
+
+          <div class = "box3">
+            <img src="img/coal.gif" alt="lighting waste calculator" width="48%" height="48%" /><h6>pounds of coal burned:<span id="coalBurnedForCom"></span></h6>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!--button order for residential-->
+  <!--  
+  1.state
+  2. add button, bulbtypes, number of bulbs,number of hours wasted,delete button
+  3.slide
+  4.results display on the right side -->
+
+
+  <!--1. state -->
+  <div id="firstRowForRes">     
+
+  <select    class= "stateForRes" id= "resState" name = "stateForRes"   data-style="btn-primary" >
+  <option class="Not Specified" selected>Select State</option> 
+  <option id ="alRes" class="dropdown-item" href="#" value="1"  data-subtext=" " >AL</option>
+  <option id ="akRes" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
+  <option id ="azRes" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
+  <option id ="arRes" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
+  <option id ="caRes" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
+  <option id ="coRes" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
+  <option id ="ctRes" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
+  <option id ="deRes" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
+  <option id ="flRes" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
+  <option id ="gaRes" class="dropdown-item" href="#" value="10" data-subtext=" ">GA</option>
+  <option id ="hiRes" class="dropdown-item" href="#" value="11" data-subtext=" ">HI</option>
+  <option id ="idRes" class="dropdown-item" href="#" value="12" data-subtext=" ">ID</option>
+  <option id ="ilRes" class="dropdown-item" href="#" value="13" data-subtext=" ">IL</option>
+  <option id ="inRes" class="dropdown-item" href="#" value="14" data-subtext=" ">IN</option>
+  <option id ="iaRes" class="dropdown-item" href="#" value="15" data-subtext=" ">IA</option>
+  <option id ="ksRes" class="dropdown-item" href="#" value="16" data-subtext=" ">KS</option>
+  <option id ="kyRes" class="dropdown-item" href="#" value="17" data-subtext=" ">KY</option>
+  <option id ="laRes" class="dropdown-item" href="#" value="18" data-subtext=" ">LA</option>
+  <option id ="meRes" class="dropdown-item" href="#" value="19" data-subtext=" ">ME</option>
+  <option id ="mdRes" class="dropdown-item" href="#" value="20" data-subtext=" ">MD</option>
+  <option id ="maRes" class="dropdown-item" href="#" value="21" data-subtext=" ">MA</option>
+  <option id ="miRes" class="dropdown-item" href="#" value="22" data-subtext=" ">MI</option>
+  <option id ="mnRes" class="dropdown-item" href="#" value="23" data-subtext=" ">MN</option>
+  <option id ="msRes" class="dropdown-item" href="#" value="24" data-subtext=" ">MS</option>
+  <option id ="moRes" class="dropdown-item" href="#" value="25" data-subtext=" ">MO</option>
+  <option id ="mtRes" class="dropdown-item" href="#" value="26" data-subtext=" ">MT</option>
+  <option id ="neRes" class="dropdown-item" href="#" value="27" data-subtext=" ">NE</option>
+  <option id ="nvRes" class="dropdown-item" href="#" value="28" data-subtext=" ">NV</option>
+  <option id ="nhRes" class="dropdown-item" href="#" value="29" data-subtext=" ">NH</option>
+  <option id ="njRes" class="dropdown-item" href="#" value="30" data-subtext=" ">NJ</option>
+  <option id ="nmRes" class="dropdown-item" href="#" value="31" data-subtext=" ">NM</option>
+  <option id ="nyRes" class="dropdown-item" href="#" value="32" data-subtext=" ">NY</option>
+  <option id ="ncRes" class="dropdown-item" href="#" value="33" data-subtext=" ">NC</option>
+  <option id ="ndRes" class="dropdown-item" href="#" value="34" data-subtext=" ">ND</option>
+  <option id ="ohRes" class="dropdown-item" href="#" value="35" data-subtext=" ">OH</option>
+  <option id ="okRes" class="dropdown-item" href="#" value="36" data-subtext=" ">OK</option>
+  <option id ="orRes" class="dropdown-item" href="#" value="37" data-subtext=" ">OR</option>
+  <option id ="paRes" class="dropdown-item" href="#" value="38" data-subtext=" ">PA</option>
+  <option id ="riRes" class="dropdown-item" href="#" value="39" data-subtext=" ">RI</option>
+  <option id ="scRes" class="dropdown-item" href="#" value="40" data-subtext=" ">SC</option>
+  <option id ="sdRes" class="dropdown-item" href="#" value="41" data-subtext=" ">SD</option>
+  <option id ="tnRes" class="dropdown-item" href="#" value="42" data-subtext=" ">TN</option>
+  <option id ="txRes" class="dropdown-item" href="#" value="43" data-subtext=" ">TX</option>
+  <option id ="utRes" class="dropdown-item" href="#" value="44" data-subtext=" ">UT</option>
+  <option id ="vtRes" class="dropdown-item" href="#" value="45" data-subtext=" ">VT</option>
+  <option id ="vaRes" class="dropdown-item" href="#" value="46" data-subtext=" ">VA</option>
+  <option id ="waRes" class="dropdown-item" href="#" value="47" data-subtext=" ">WA</option>
+  <option id ="wvRes" class="dropdown-item" href="#" value="48" data-subtext=" ">WV</option>
+  <option id ="wiRes" class="dropdown-item" href="#" value="49" data-subtext=" ">WI</option>
+  <option id ="wyRes" class="dropdown-item" href="#" value="50" data-subtext=" ">WY</option>
+
+  </select >
+    <!--add button-->
+  <button id="addRowForRes">Add Building</button>
+</div>
+  <!--second row buttons -->
+  <div id="hideRoomForRes" >
+    <table id ="tableForRes">
+      <tbody style="width: 126%; height:auto; display:table;">
+        <tr>
+
+          <!--2. bulb type-->    
+          <td style="display: inline-block;">
+          <select   class="bulbListForRes" id="resBulbList" >
+                      <option class="Not Specified" >Bulb Type</option>
+                      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> 
+                      <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  
+                      <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> 
+                      <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>
+                      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   
+          </select>
+          </td>
+
+          <!--3.number of bulbs-->
+          <td style="display: inline-block;">
+            <div  style="width:90%;"  id="numOfBulbForRes">
+            <input type="text" name="nubmer" id="resNumOfBulb" class="form-control"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+            </div>
+          </td>
+
+          <!--4. number of hours wasted-->
+          <td style="display: inline-block;">
+            <div style="width:90%;"  id="numOfHourForRes">   
+              <input type="text" name="numbmer" id="resNumOfHour" class="form-control"   placeholder="# of hours wasted" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+            </div>
+          </td>
+
+          <!--delete button-->
+          <td style="display: inline-block;"> 
+              <i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i>
+          </td>  
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+        
+
+  <!--5. slider-->
+  <div class="resSlider"id ="numOfDayForRes">
+    <input  class = "sliderForRes"type="range" min="1" max="365"value ='0' id="resSlideId"step="1">
+    <br><span id="resSlideVal" class= "day">1 Operating Day/Year</span>
+  </div>
+      
+
+  <!--6. Results display-->
+  <aside>
+    <div id="sideForRes">    
+
+      <h2 id= "special1" >Electricity Waste = <span id="elecForRes"></span></h2>
+      <canvas id="myChart1" width="30%" height="18%"></canvas>
+
+      <!--CO2 image icon-->
+      <div class=  "rightForRes"  id = "dataForRes">
+        <h2>CO2 Waste = <span id="co2wasteForRes"></span></h2> 
+                <!--<h4>This CO2 waste is equivalent to: </h4> -->  
+          <div class="boxContainer">
+          <!--little box for co2 image-->
+          <div class = "box1"> 
+            <img src="img/mobile-phone.png" alt="lighting waste calculator" width="48%" height="48%"/><h6>smartphones charged:<span id="phoneChargesForRes"></span></h6>
+          </div> 
+
+          <div class = "box2">
+            <img src="img/vehicles.gif" alt="lighting waste calculator" width="48%" height="48%"/> <h6>miles driven by vehicle:<span id="milesDrivenForRes"></span></h6>
+          </div>
+          
+          <div class = "box3">
+            <img src="img/coal.gif" alt="lighting waste calculator" width="48%" height="48%" /><h6>pounds of coal burned: <span id="coalBurnedForRes"></span></h6>
+          </div >
+        </div>
+      </div>
+    </div>
+  </aside> 
+  
+</section>
+</body>
+
+
+<script>
+  ////////////////////////CO2 calculation function for commercial/////////////////////////////////
+  function co2calcForCom(elec){
+
+    var miles = 1.7; // # of miles driven per kWh
+    var coal = 0.773; // # of pounds of coal burned per kWh
+    var carbon = 1.36; //  # of pound per kWh
+    var numOfSmartphoneCharges = 90.2; // # of smartphones charged per kWh
+
+
+    document.getElementById("co2wasteForCom").innerHTML =  numberWithCommas((carbon * (  elec )).toFixed(0)) +'lb';
+    document.getElementById("phoneChargesForCom").innerHTML =" "+numberWithCommas( (numOfSmartphoneCharges * (elec)).toFixed(0));
+    document.getElementById("milesDrivenForCom").innerHTML =" "+ numberWithCommas(((miles * (elec)).toFixed(0)) );
+    document.getElementById("coalBurnedForCom").innerHTML =" "+ numberWithCommas(((coal * (elec)).toFixed(0)));
+  }
+
+
+  
+  ////////////////////////CO2 calculation function for residential//////////////////////////////
+  function co2calcForRes(elec){
+    var miles = 1.7; // # of miles driven per kWh
+    var coal = 0.773; // # of pounds of coal burned per kWh
+    var carbon = 1.36; //  # of pound per kWh
+    var numOfSmartphoneCharges = 90.2; // # of smartphones charged per kWh
+
+
+    document.getElementById("co2wasteForRes").innerHTML = (carbon * (  elec )).toFixed(0) +' lb' ;
+    document.getElementById("phoneChargesForRes").innerHTML =" "+(numOfSmartphoneCharges * (elec)).toFixed(0);
+    document.getElementById("milesDrivenForRes").innerHTML =" "+ (miles * (elec)).toFixed(0);
+    document.getElementById("coalBurnedForRes").innerHTML =" "+(coal * (elec)).toFixed(0);
+
+  }
+
+
+
+  //////////////////////////electricity waste calculation function for commercial///////////////
+  function commercialCal(comState,comRoomType,numOfRoom,comBulbList,comNumOfBulb,sliderForCom,comPrice){
+    
+    var getcomState = document.getElementById("comState").value;   
+    var getslide = document.getElementById("comSlideId").value;
+    var slideval = document.getElementById('comSlideVal');
+    var commercialValue = document.getElementById("commercial").value;
+    //console.log("Commerical value is: " + commercialValue)
+
+    var anual = 0;
+    var oneYear = 0;
+    var threeYears = 0;
+    var fiveYears = 0;
+    var electricity = 0;
+  
+    
+    var conversion =0.001;
+    var cost = comPrice; 
+    //console.log("comPrice value is: " + cost)
+    
+    var year = 365;
+    electricity = comBulbList * getslide * comNumOfBulb * comRoomType *numOfRoom * conversion; //electrcity calculation
+    var finalElec = (electricity * cost);
+    document.getElementById("elecForCom").innerHTML  = "$" +   numberWithCommas((electricity * cost).toFixed(0) );
+    //console.log(numberWithCommas("electricity: "+ (electricity * cost).toFixed(0)));
+
+    anual = comBulbList  * comNumOfBulb * comRoomType *numOfRoom * conversion; //electrcity calculation
+    oneYear = ((anual * cost) * year).toFixed(0);
+    threeYears = ((anual * cost) * year * 3).toFixed(0);
+    fiveYears = ((anual * cost) * year * 5).toFixed(0);
+    //console.log(comBulbList +" "+ getslide +" "+ comNumOfBulb +" "+ comRoomType +" "+numOfRoom);
+
+  if(getslide=="Slider")
+  {
+    getslide = 0;
+    }
+  slideval.innerHTML = getslide+" Operating Days/Year";
+
+
+  function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+ //console.log("Com finalElec: "+finalElec);
+
+  return finalElec;
+}
+
+  //////////////////////////electricity waste calculation function for residential///////////////
+  function residentialCal(resState,resBulbList, resNumOfBulb,resNumOfHour, sliderForRes, resPrice){
+
+    //residential getElementId
+    var getresState = document.getElementById("resState").value; 
+    var getslide = document.getElementById("resSlideId").value;
+    var slideval = document.getElementById('resSlideVal');
+    var residentialValue = document.getElementById("residential").value;
+
+   // console.log("residential value is: " + residentialValue)
+    if(residentialValue == "RES")
+    {
+
+    var anual = 0;
+    var oneYear = 0;
+    var threeYears = 0;
+    var fiveYears = 0;
+    var electricity = 0;
+    var conversion =0.001;
+    var cost = resPrice; 
+  
+  
+   //  console.log("resPrice value is: " + resPrice)
+    var numOfSmartphoneCharges = 90.2; // # of smartphones charged per kWh
+    var miles = 1.7; // # of miles driven per kWh
+    var coal = 0.773; // # of pounds of coal burned per kWh
+    var carbon = 1.36; //  # of pound per kWh
+    var year = 365;
+
+
+     electricity = resBulbList * getslide * resNumOfBulb * resNumOfHour  * conversion; //electrcity calculation
+     var finalElec = (electricity * cost);
+     document.getElementById("elecForRes").innerHTML  = "$" + (  electricity * cost).toFixed(2);
+
+    }
+    anual = resBulbList * resNumOfBulb * resNumOfHour  * conversion; //electrcity calculation
+    oneYear = ((anual * cost) * year).toFixed(2);
+    threeYears = ((anual * cost) * year * 3).toFixed(2);
+    fiveYears = ((anual * cost) * year * 5).toFixed(2);
+
+    if(getslide=="Slider")
+    {
+    getslide = 0;
+    }
+    slideval.innerHTML = getslide+" Operating Days/Year";
+
+    return finalElec;
+    }
+
+
+  function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+
+
+//////////////////////////////////Jquery function start /////////////////////////////////////////////
+//////////////////////////////////Jquery function start/////////////////////////////////////////////
+//////////////////////////////////Jquery function start/////////////////////////////////////////////
+//////////////////////////////////Jquery function start/////////////////////////////////////////////
+//////////////////////////////////Jquery function start/////////////////////////////////////////////
+    $(document).ready(function(){
+
+    //functionality to caputure user's location
+    var shortName=null;
+    var x = document.getElementById("demo");
+    
+    async function getLocation() {
+      if (navigator.geolocation) {
+      await  navigator.geolocation.getCurrentPosition(showPosition);
+      } 
+      else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    //getting the location
+    function showPosition(position) 
+    {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+      var locAPI = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+
+      position.coords.latitude+","+ position.coords.longitude+"&key=AIzaSyBprZjEVmQFA2Jx08pDC2JORrLumb0t_Nk";
+
+      $.get({
+        url:locAPI,
+        success: function(data){
+            x.innerHTML = data.results[3].address_components[3].long_name + ', '; 
+            x.innerHTML += data.results[3].address_components[3].short_name;      
+            var state= data.results[3].address_components[3].short_name;
+            var state1 =data.results[3].address_components[2].short_name;
+          
+            if(state=="PA" || state=="philadelphia"){
+            getState(38,state);
+            }
+
+
+        }  
+    });
+    }
+    getLocation();
+
+    async function getState(data,state){
+      await stateConversion(data,state);
+      console.log("done");
+    }
+
+    function setSelectedIndex(s, i)
+    {
+    s.options[i].selected = true;
+    return;
+    }
+
+    getState();
+
+
+    function stateConversion(value,state){
+  
+      $("#resState").change(function(){})
+
+
+      setSelectedIndex(document.getElementById("comState"),value);
+      setSelectedIndex(document.getElementById("resState"),value);
+
+      var chosenBuldingType3 = $("#commercial").val();
+      var chosenBuldingType4 = $("#residential").val(); //get COM or RES
+      
+      if(chosenBuldingType3 ="COM")
+      {
+
+        var dash ='-';
+        var restWord = '.M';
+
+        //state conversion
+        //callApiForCom = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
+        //callApiForCom +=  state + dash +  chosenBuldingType3 + restWord;
+  callApiForCom = "/resource?state=" + state + "&buildingType=" + chosenBuldingType3 
+  fetchComData(callApiForCom)
+
+
+      }
+      if(chosenBuldingType4 ="RES")
+      {
+
+        var dash ='-';
+        var restWord = '.M';
+
+        //state conversion
+        //callApiForRes = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
+        //callApiForRes +=  state + dash + chosenBuldingType4 + restWord;
+  callApiForRes = "/resource?state=" + state + "&buildingType=" + chosenBuldingType4
+  fetchResData(callApiForRes);
+
+      }
+    }
+
+  //when the following buttons are clicked, then excute the function
+  $("#commercial").click(function (){
+
+    var chosenstate1 = $("#commercial").val();
+
+    if(chosenstate1 == "COM")
+    {
+      commercialOption();
+    } 
+  });
+
+
+  $("#residential").click(function (){
+
+      var chosenstate2 = $("#residential").val();
+
+      if(chosenstate2 == "RES")
+      {
+      
+        residentialOption();
+      }
+    });
+
+
+$("#commercial1").click(function (){
+
+    var chosenstate1 = $("#commercial1").val();
+
+    if(chosenstate1 == "COM")
+    {
+      commercialOption();
+    }
+  });
+
+
+$("#residential1").click(function (){
+
+    var chosenstate2 = $("#residential1").val();
+
+    if(chosenstate2 == "RES")
+    {
+      residentialOption();
+    }
+});
+  //things that should display and should not display during commercial page 
+  function commercialOption(){
+    // section chagne
+  //  $("#subsection").css({"right" :"40%"});
+   // $("#subsection").css({"width" :"60%"});
+   // $("#subsection").css({"margin-right" :"200px"});
+   $("#subsection").css({"width":"60%","right":"100%"});
+
+    $("#commercial1").css({"display":"inline-block","background":"#337ab7"});
+    $("#residential1").css({"display":"inline-block","background":"white"});
+    $("#addRowForCom").css({"display":"inline-block","margin-left":"15%"});
+    $("#secondRow").css("display","inline-block");
+    $("#hideBulb").css("display","inline-block");
+    $("#comRoomType").css("display", "inline-block");
+    $(".stateForCom").css("display", "block");
+    $(".roomType").css("display", "inline-block");
+    $("#numOfRoomForCom").css("display", "inline-block");
+    $(".bulbListForCom").css("display", "inline-block");
+    $("#numOfBulbForCom").css("display", "inline-block");
+    $("#numOfDayForCom").css("display", "block");
+    $("#remove").css("display", "block");
+    $(".bulbListForComOption").css("display", "block");
+    $("#comRoomType1 ").css("display", "inline-block");
+    $("#numOfRoom1 ").css("display", "inline-block");
+    $("#comBulbList1 ").css("display", "inline-block");
+    $("#comNumOfBulb1 ").css("display", "inline-block");
+    $("#removeForCom ").css("display", "inline-block");
+    $("#sideForCom").css("display", "block");
+
+
+    //things that should display none
+    
+    $("#choices").css("height", "20%");
+    $("#header").css("display", "none");
+    $("#cal-icon").css("display", "none");
+    $("#loc").css("display", "none");
+    $("#welcomeHeader").css("display", "none");
+    $("#stateForRes").css("display", "none");
+    $("#numOfRoomForRes").css("display", "none");
+    $("#bulbListForRes").css("display", "none");
+    $("#numOfDayForRes").css("display", "none");
+    $("#resState").css("display","none");
+    $("#hideRoomForRes  ").css("display","none");
+    $("#dataForCom").css("display", "block");
+    $("#addRowForRes").css("display", "none");
+    $(".commercial").css("display", "none");
+    $(".residential").css("display", "none");
+    $("#sideForRes").css("display", "none");
+    $("#resNumOfHour1 ").css("display", "none");
+    $("#resNumOfBulb1 ").css("display", " none");
+    $("#resBulbList1 ").css("display", "none");
+    $("#removeForRes ").css("display", "none");
+  }
+
+  //things that should display and should not display during commercial page 
+  function residentialOption(){
+    
+    //things that should display block
+    $("#subsection").css({"right" :"40%"});
+    $("#subsection").css({"width" :"60%"});
+    $("#commercial1").css({"display":"inline-block","background":"white"});
+    $("#residential1").css({"display":"inline-block","background":"#337ab7"});
+    $("#resState").css("display","block");
+    $("#addRowForRes").css({"display":"inline-block","margin-left":"15%" });
+    $("#removeForRes ").css("display", "inline-block");
+    $("#resNumOfHour").css("display", "inline-block");
+    $("#resNumOfBulb").css("display", "inline-block");
+    $("#resBulbList").css("display", "inline-block");
+    $("#removeForRes").css("display", "inline-block");
+    $("#hideRoomForRes ").css("display", "inline-block");
+    $("#numOfDayForRes").css("display", "block");
+    $("#sideForRes").css("display", "block");
+    $("#resNumOfHour1 ").css("display", "inline-block");
+    $("#resNumOfBulb1 ").css("display", "inline-block");
+    $("#resBulbList1 ").css("display", "inline-block");
+    $(".commercial").css("display", "none");
+    $(".residential").css("display", "none");
+    $("#addRowForCom").css("display", "none");
+    $("#secondRow ").css("display", "none");
+    $("#comRoomType1 ").css("display", "none");
+    $("#numOfRoom1 ").css("display", "none");
+    $("#comBulbList1 ").css("display", "none");
+    $("#comNumOfBulb1 ").css("display", "none");
+    $("#removeForCom ").css("display", "none");
+
+    //things that should display none
+    $("#choices").css("height", "20%");
+
+    $("#cal-icon").css("display", "none");
+    $("#loc").css("display", "none");
+    $("#welcomeHeader").css("display", "none");
+    $(".stateForCom").css("display", "none");
+    $(".roomType").css("display", "none");
+    $("#numOfRoomForCom").css("display", "none");
+    $(".bulbListForCom").css("display", "none");
+    $("#numOfBulbForCom").css("display", "none");
+    $("#numOfDayForCom").css("display", "none");
+    $("#dataForCom").css("display", "none");
+    $(".bulbListForComOption").css("display", "none");
+    $("#sideForCom").css("display", "none");
+    $("#header").css("display", "none");
+  }
+
+    $("#comRoomType").change(function(){
+      $('#hideRoom .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
+    });
+
+    $("#comBulbList").change(function(){
+      $('#hideBulb .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
+    });
+
+
+    //state for commercial 
+    $("#comState").change(function(){
+  
+      var chosenCom = $("#comState").val();        //get state fist two inital letter
+      var chosenBuldingType1 = $("#commercial").val();  //get COM or RES
+      
+
+      var states = ["al", "ak", "az", "ar", "ca", "co", "ct", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md",
+      "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn",
+      "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"];
+
+      var getCom = (states[parseInt(chosenCom)-1]).toUpperCase();
+          
+      var dash ='-';
+      var restWord = '.M';
+
+      //state conversion
+      //callApiForCom = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
+      //callApiForCom +=  getCom + dash +  chosenBuldingType1 + restWord;
+  callApiForCom = "/resource?state=" + getCom + "&buildingType=" + chosenBuldingType1 
+  fetchComData(callApiForCom)
+
+    });  
+    
+      
+    //state for residential
+    $("#resState").change(function(){
+    
+      var chosenRes = $("#resState").val(); //get state fist two inital letters
+      var chosenBuldingType2 = $("#residential").val(); //get COM or RES
+      
+
+      var states = ["al", "ak", "az", "ar", "ca", "co", "ct", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md",
+      "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn",
+      "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"];
+
+      var getRes = states[parseInt(chosenRes)-1].toUpperCase();
+    
+      var dash ='-';
+      var restWord = '.M';
+
+      //state conversion
+      //callApiForRes = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
+      //callApiForRes +=  getRes + dash + chosenBuldingType2 + restWord;
+  callApiForRes = "/resource?state=" + getRes + "&buildingType=" + chosenBuldingType2 
+  fetchResData(callApiForRes);
+    });  
+
+
+
+    $("#execute").click(function(){
+
+        $("#resultbox").text(result); 
+    });
+  });
+
+
+  //callback function for ressidential state
+  function returnResData(data){
+    resPrice = parseFloat(data) / 100;
+    return resPrice;
+  }
+  function returnComData(data){
+    comPrice = parseFloat(data) / 100;
+    return comPrice;  
+  }
+
+  //callback function for commercial state=
+  function fetchComData(url){ 
+    $.ajax({
+      url:url,
+      dataType: "json", 
+      type: "GET",
+      success:function(result){
+      //comPrice = returnComData(result.series[0].data[0][1]);
+  comPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
+  console.log("comPrice: " + comPrice);
+  commercialCal('comRoomType','numOfRoom','comBulbList','comNumOfBulb','getslide',comPrice);
+      }
+    });   
+}
+
+  function fetchResData(url){       
+      $.ajax({
+        url:url,
+        dataType: "json",
+        type: "GET",
+        success:function(result){
+        //resPrice = returnResData(result.series[0].data[0][1]);
+  resPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
+  console.log("resPrice" + resPrice)
+  residentialCal(resPrice,'resBulbList', 'resNumOfBulb','resNumOfHour', 'sliderForRes', resPrice)
+        // console.log("here is URL: "+ url)
+          }
+      });
+  }
+  //putting html code into javascript variable to create a row of buttons when you click Add button
+    var com= '<tr><div id ="hideOptions"><td style="display: inline-block;"><select  class="roomTypeOption" id="comRoomType1" data-style="btn-primary">\
+      <option class="Not Specified" selected>Room Type</option>\
+      <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom</option>\
+      <option class="dropdown-item" href="#" value="10.32"  data-subtext="10.32 Hours Wasted">Classroom</option>\
+      <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>\
+      <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option>\
+      <option class="dropdown-item" href="#" value="7.56" data-subtext="7.56 Hours Wasted">Office, Private</option>\
+      <option class="dropdown-item" href="#" value="2.4"  data-subtext="2.4 Hours Wasted">Office, Open</option>\
+      <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>\
+      <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>\
+      <option class="dropdown-item" href="#" value="10.68"  data-subtext="10.68 Hours Wasted">Warehouse</option>\
+      </select></td>\
+      <td style="display: inline-block;"><input class = "numOfRoomOption" type="text" name="nubmer" id="numOfRoom1"  placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+      </td>\
+      <td style="display: inline-block;"><select   class="bulbListForComOption"  id="comBulbList1" data-style="btn-primary" >\
+      <option class="Not Specified" selected>Select Bulb Type</option>\
+      <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option>\
+      <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>\
+      <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option>\
+      <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>\
+      <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>\
+      </select ></td>\
+      <td style="display: inline-block;">\
+      <input type="text" name="nubmer" id="comNumOfBulb1" placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+      </td>\
+      <td style="display: inline-block;"> <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148);"></i></td></div></tr>';
+    
+    var res = '<tr><td style="display: inline-block;"><select class="bulbListForRes" id="resBulbList1"  data-style="btn-primary" >\
+      <option class="Not Specified" selected>Select Bulb Type</option>\
+      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> \
+      <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  \
+      <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> \
+      <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>\
+      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   \
+      </select> </td>\
+      <td style="display: inline-block;"><div   id="numOfBulbForRes">\
+      <input type="text" name="nubmer" id="resNumOfBulb1"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+      </div> </td>\
+        <td style="display: inline-block;"><div   id="numOfHourForRes">\
+        <input type="text" name="numbmer" id="resNumOfHour1"   placeholder="# of hours wasted" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+      </div></td>\
+      <td style="display: inline-block;"><i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i></td></td></tr>';
+      
+
+  ///////////////////////sorting tables of button////////////////////////////
+    $( document ).ready(function(){
+    $('tbody').sortable();
+
+    $('#addRowForCom').click(function(){
+
+      $('#tableForCom tbody').append(com);
+      optionUpdateForCom();
+
+    });
+
+    $('#addRowForRes').click(function(){
+      $('#tableForRes tbody').append(res);
+      optionUpdateForRes();  
+    });
+
+    $(document).on('click', '#removeForCom', function() {
+      $(this).parents('tr').remove();
+      optionUpdateForCom();
+    });
+
+    $(document).on('click', '#removeForRes', function() {
+      $(this).parents('tr').remove();
+      optionUpdateForRes();
+    });
+
+
+
+///////////////////////////////commercial function calls start//////////////////////////////////////
+  //state
+  $("#comState").change( optionUpdateForCom);
+  //room type
+  $("#comRoomType").change( optionUpdateForCom);
+  //# of room
+  $("#numOfRoom").change( optionUpdateForCom);
+      
+  //bulb type 
+  $("#comBulbList").change(optionUpdateForCom);
+    
+  //# of room 
+  $("#comNumOfBulb").change( optionUpdateForCom);
+
+  //silde value
+  $("#comSlideId").change( optionUpdateForCom);
+  
+  //silde value
+  $("#comSlideId").on('input', function() {
+    optionUpdateForCom();
+  });
+
+  //# of room
+  $(document).on('change',".roomTypeOption",function(){
+    optionUpdateForCom();
+  });
+  //bulb type 
+  $(document).on('change',"#numOfRoom1", function(){
+    optionUpdateForCom();
+  });
+
+  //# of room 
+  $(document).on('change',"#comBulbList1", function(){
+    optionUpdateForCom();
+  });
+
+  //room type
+  $(document).on('change',"#comNumOfBulb1", function(){
+    optionUpdateForCom();
+  });
+
+///////////////////////////////commercial function calls end//////////////////////////////////////
+
+
+
+///////////////////////////////residential function calls start//////////////////////////////////
+
+  //state
+  $("#resState").change( optionUpdateForRes);
+  //room type
+  $("#resBulbList").change( optionUpdateForRes);
+  //# of room
+  $("#resNumOfBulb").change( optionUpdateForRes);
+
+  //bulb type 
+  $("#resNumOfHour").change( function(){
+    optionUpdateForRes();
+  });
+
+  $("#resSlideId").change( function(){
+    optionUpdateForRes(); 
+  });
+
+  $("#resSlideId").on('input', function() {
+    optionUpdateForRes();
+  });
+
+  //# of room
+  $(document).on('change',"#resBulbList1", function(){
+    optionUpdateForRes();
+  });
+
+  //bulb type 
+  $(document).on('change',"#resNumOfBulb1", function(){
+    optionUpdateForRes();
+  });
+
+  //# of room 
+  $(document).on('change',"#resNumOfHour1", function(){
+    optionUpdateForRes();
+  });
+});
+///////////////////////////////residential function calls end//////////////////////////////////
+
+
+///////////////////////////////residential elelc waste in total function start /////////////////  
+function optionUpdateForRes(){
+  var bulbList =0 ;
+  var numOfBulbs =0 ;
+  var numOfHours =0;
+
+  var result =0;
+  var test = 0;
+  var counter = 0;
+  var led = 0;    
+
+  $('#tableForRes tbody tr').each(function(){
+
+    counter++;
+    //console.log("counter: "+counter);
+    var currow = $(this).closest('tr');
+    this.bulbList =currow.find('td:eq(0)').find("select").val();
+    this.numOfBulbs =currow.find('td:eq(1)').find("input").val();
+    this.numOfHours =currow.find('td:eq(2)').find("input").val();
+    var slide = document.getElementById('resSlideId').value;
+
+
+    test =  residentialCal('resState',this.bulbList,  this.numOfBulbs,this.numOfHours, slide, resPrice);
+    result +=  residentialCal('resState',this.bulbList,  this.numOfBulbs,this.numOfHours, slide, resPrice);
+    led +=  residentialCal('resState',10,  this.numOfBulbs,this.numOfHours, slide, resPrice);
+
+    console.log("Res col" + counter+": " +test );
+
+  }); returnNumb1(result,led);     co2calcForRes(result,'resState');
+  document.getElementById("elecForRes").innerHTML  = "$" +   numberWithCommas((result).toFixed(0) );
+
+}
+
+
+function optionUpdateForCom(){
+  var roomType =0 ;
+  var numOfRoom =0 ;
+  var bulbType =0;
+  var numOfBulb =0 ;
+  var result =0;
+  var test = 0;
+  var counter = 0;     
+  var led = 0;
+
+
+
+  $('#tableForCom tbody tr').each(function(){
+
+    counter++;
+    var currow = $(this).closest('tr');
+    this.roomType =currow.find('td:eq(0)').find("select").val();
+    this.numOfRoom =currow.find('td:eq(1)').find("input").val();
+    this.bulbType =currow.find('td:eq(2)').find("select").val();
+    this.numOfBulb =currow.find('td:eq(3)').find("input").val();
+var slide = document.getElementById('comSlideId').value;
+
+    //console.log("roomType: " + this.roomType +" numOfRoom: " + this.numOfRoom+" bulbType: " + this.bulbType+" numOfBulb: " + this.numOfBulb+" slide: "+ slide );
+    test =  commercialCal('comState',this.roomType,this.numOfRoom,this.bulbType,this.numOfBulb, slide, comPrice);
+    result +=  commercialCal('comState',this.roomType,this.numOfRoom,this.bulbType,this.numOfBulb, slide, comPrice);
+    led  +=  commercialCal('comState',this.roomType,this.numOfRoom,19,this.numOfBulb, slide, comPrice);
+    
+    console.log("Com col" + counter+": " +test );
+  }); co2calcForCom(result,'comState');
+    returnNumb(result,led);
+
+document.getElementById("elecForCom").innerHTML  = "$" +   numberWithCommas((result).toFixed(0) );
+}
+
+
+</script>
+<script>
+
+function returnNumb(firstYear,ledFirstYear){
+  
+var second =firstYear*2;
+var third =firstYear*3;
+
+var forth =firstYear*4;
+var fith =firstYear*5;
+
+var ledSecond =ledFirstYear*2;
+var ledThird =ledFirstYear*3;
+
+var ledForth =ledFirstYear*4;
+var ledFith =ledFirstYear*5;
+
+
+
+var canvas = document.getElementById('myChart');
+var data = {
+    labels: ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years"],
+    datasets: [
+        {
+            label: "Your Choice",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(68, 173, 213, 0.4)",
+            borderColor: "rgba(68, 173, 213, 1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(68, 173, 213, 1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 5,
+            pointHitRadius: 10,
+            data: [firstYear, second, third, forth, fith],
+          },
+        {
+
+          label: "LED",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "rgba(244, 238, 66, 0.4)",
+          borderColor: "rgba(244, 238, 66, 1)",  
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "rgba(244, 238, 66, 1)",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          pointHitRadius: 10,
+          data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
+
+          },
+        {
+
+          label: "Snap-On Device",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "rgba(113, 244, 65, 0.4)",
+          borderColor: "rgba(113, 244, 65, 1)",  
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: "rgba(113, 244, 65, 1)",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          pointHitRadius: 10,
+          data: [0, 0, 0, 0, 0],
+
+        }
+    ]
+};
+
+var option = {
+  showLines: true
+};
+var myLineChart = Chart.Line(canvas,{
+  data:data,
+  options:option
+  });
+
+}
+returnNumb();
+
+function returnNumb1(firstYear,ledFirstYear){
+  
+  var second =firstYear*2;
+  var third =firstYear*3;
+  
+  var forth =firstYear*4;
+  var fith =firstYear*5;
+  
+  var ledSecond =ledFirstYear*2;
+  var ledThird =ledFirstYear*3;
+  
+  var ledForth =ledFirstYear*4;
+  var ledFith =ledFirstYear*5;
+  
+  
+  
+  var canvas = document.getElementById('myChart1');
+  var data = {
+      labels: ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years"],
+      datasets: [
+          {
+              label: "Your Choice",
+              fill: false,
+              lineTension: 0.1,
+              backgroundColor: "rgba(68, 173, 213, 0.4)",
+              borderColor: "rgba(68, 173, 213, 1)",
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: "rgba(68, 173, 213, 1)",
+              pointBackgroundColor: "#fff",
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBorderWidth: 2,
+              pointRadius: 5,
+              pointHitRadius: 10,
+              data: [firstYear, second, third, forth, fith],
+          },
+          {
+  
+            label: "LED",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(244, 238, 66, 0.4)",
+            borderColor: "rgba(244, 238, 66, 1)",  
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(244, 238, 66, 1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 5,
+            pointHitRadius: 10,
+            data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
+  
+          },
+          {
+  
+            label: "Snap-On Device",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(113, 244, 65, 0.4)",
+            borderColor: "rgba(113, 244, 65, 1)",  
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(113, 244, 65, 1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 5,
+            pointHitRadius: 10,
+            data: [0, 0, 0, 0, 0],
+  
+          }
+      ]
+  };
+
+  var option = {
+    showLines: true
+  };
+  var myLineChart = Chart.Line(canvas,{
+    data:data,
+    options:option
+
+  }); 
+}
+returnNumb1();
+</script>
+</html>
