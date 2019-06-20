@@ -50,66 +50,72 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137853297-1"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-137853297-1');
-</script>
+    gtag('config', 'UA-137853297-1');
+  </script>
 
-<style>
-/*start geolocation style*/
-#loc{
-  width: 200%;
-  height: 50px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 3px solid #ccc;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-  border-radius: 2.0rem;
+  <style>
+    /*start geolocation style*/
 
-}
-#cal-icon{
-  display:inline-block;
 
-}
-#location{
-  position: relative;
-  right:5%;
-}
-/*end geolocation style*/
-
-/****start slider style*****/
-
-.selectpicker {
-  display: block;
-  margin: 0 auto;
-  float:center;
-  margin-bottom: 20px;
-  
-  }
-  span{
+    #location{
+      position: relative;
+      width:100%;
       text-align:center;
-  }
 
-  
-  .day{
-      margin-left: 40px;
-      font-size: 20px;
+    }
+    #location .locate{
+      height:36px; 
+      margin:2px 0;
+
+    }
+    #loc{
+      height:36px;
+      margin:2px 0;
+      border: 2px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+      border-radius: 1.0rem;
+    }
+    #demo{
+      margin:0px 20px 0px 20px;
+      line-height:30px;
+      font-weight:300;
+    }
+    /*end geolocation style*/
+
+    /****start slider style*****/
+
+    .selectpicker {
+      display: block;
+      margin: 0 auto;
+      float:center;
+      margin-bottom: 20px;
+
+    }
+    span{
+      text-align:center;
+    }
+
+
+    .day{
+      /*margin-left: 40px;*/
+      font-size: 16px;
       font-weight: bold;
-  }
-  
+    }
+
     /* The slider itself */
     
     /* The slider itself */
     .sliderForCom, .sliderForRes {
       -webkit-appearance: none;  /* Override default CSS styles */
       appearance: none;
-      width: 65%; /* Full-width */
-      height: 10px; /* Specified height */
+      width: 100%; /* Full-width */
+      height: 5px; /* Specified height */
       background: #c4c4c483;
 
       ; /* Grey background */
@@ -117,7 +123,7 @@
       opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
       -webkit-transition: .2s; /* 0.2 seconds transition on hover */
       transition: opacity .2s;
-      margin-bottom: 30px;
+      margin-bottom: 3%;
     }
     
     /* Mouse-over effects */
@@ -142,383 +148,441 @@
       background:#44add5; /* Green background */
       cursor: pointer; /* Cursor on hover */
     }
-/****end slider style****/
+    /****end slider style****/
 
 
 
-/*start drop down menu */
-html {
-  overflow: -moz-scrollbars-vertical; 
-  overflow-y: scroll;
-  height:100%;
-}
-#header{
-    font-size: 60px;
-    padding-top:100px;
-    text-align: center;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*start drop down menu */
+    html {
+      overflow: -moz-scrollbars-vertical; 
+      overflow-y: scroll;
+      height:100%;
+    }
+    #header{
+      font-size: 3rem;
+      padding-top:5%;
+      text-align: center;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight:400;
 
-  }
-body{
-    background-color: #337ab7;
-    position: relative;
-    height:100%;
-  }
+    }
+    body{
+      background-color: #337ab7;
+      position: relative;
+      height:100%;
+    }
 
 
-  /*commercial*/
-  .stateForCom ,.roomType ,#numOfRoomForCom, .bulbListForCom,
-  #numOfBulbForCom,#numOfDayForCom,#dataForCom,#dataForCom1
-  {
-    display: none;
+    /*commercial*/
+    .stateForCom ,.roomType ,#numOfRoomForCom, .bulbListForCom,
+    #numOfBulbForCom,#numOfDayForCom,#dataForCom,#dataForCom1
+    {
+      display: none;
 
-  }
-  .roomTypeOption ,.numOfRoomOption,#numOfBulbForComOption,#removeForCom,#removeForRes,.bulbListForComOption
-  {
-    display: inline-block;
+    }
+    .roomTypeOption ,.numOfRoomOption,#numOfBulbForComOption,#removeForCom,#removeForRes,.bulbListForComOption
+    {
+      display: inline-block;
 
-  }
+    }
 
-  /*residential*/
-  #stateForRes, #numOfRoomForRes , #bulbListForRes
-  ,#numOfDayForRes,#rightForRes1
+    /*residential*/
+    #stateForRes, #numOfRoomForRes , #bulbListForRes
+    ,#numOfDayForRes,#rightForRes1
 
-  {
-    display: none;
-  }
-#hideRoom, #hideBulb, #addRowForCom,#addRowForRes,.remove,#secondRow{
-    display: none;
+    {
+      display: none;
+    }
+    #hideRoom, #hideBulb, #addRowForCom,#addRowForRes,.remove,#secondRow{
+      display: none;
 
-  }
+    }
 
-  #resState,#hideRoomForRes{
-    display: none;
-  }
-  #commercial1,#residential1{
-    display:none;
-  }
+    #resState,#hideRoomForRes{
+      display: none;
+    }
+    #commercial1,#residential1{
+      display:none;
+    }
 
-  #elecForCom, #elecForRes{
-    color:#ff0000;
-    font-size: 45px;
-    font-weight: bold;
-  }
+    #elecForCom, #elecForRes{
+      color:#ff0000;
+      font-size: 45px;
+      font-weight: bold;
+    }
 
-  .btn-primary{
-    background-color:#44add5;
-    border-color: #44add5;
+    .btn-primary{
+      background-color:#44add5;
+      border-color: #44add5;
+
+
+    }
+    .changeColorForSelc{
+
+      background-color:#425ff4;
+      border-color:#425ff4;
+
+    }
+
+    .bootstrap-select>.dropdown-toggle #choice2{
+      display: none;
+
+
+    }
+    #tableForCom{
+       width: 100%;
+      padding-right: 20px;
+    }
+
+    #tableForRes{
+      /*border:1px solid black;*/
+      width: 100%;
+      padding-right: 20px;
+      /*height:200px;*/
+      /*overflow: auto;*/
+     
+    }
+
+  </style>
+
+  <style>
+
+    .remove {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      background-color: tomato;
+      color: white;
+      border: none;
+      border-radius: 15px;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+    tr:hover {
+      cursor: move;
+    }
+
+
+
+    /****************************calculator menus layout start *********************************/
+    #choices{
+      align-content: center;
+      justify-content: center;
+      text-align: center;
+      height:50%;
+    }
+    .stateForCom,.stateForRes{
+
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff;
+      width: 100px;
+      height: 50px;
+      position: relative;
+      top:30px;
+      padding: 0 10px;
+      font-size: 16px;
+      overflow:hidden;
+    }
+    #firstRowForCom, #firstRowForRes{
+      position: relative;
+      /*left:20%;*/
+      /*padding:0 10%;*/
+      top: 0;
+      width:100%;
+    }
+
+    #resState{
+
+      position: relative;
+     /* left:20%;
+      top:30px;*/
+    }
+    #hideRoomForRes{
+      position: relative;
+      /*margin-left: 10%;*/
+      top: 20px;
+      height:200px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding-right: 10%;
+      padding-left: 2%;
+      border-left: 5px solid rgb(51, 122, 183);
+
+
+
+
+
+
+    }
+    #secondRow{
+      position: relative;
+      top:20px;
     
-
-  }
-.changeColorForSelc{
-
-  background-color:#425ff4;
-  border-color:#425ff4;
-
-}
-
-  .bootstrap-select>.dropdown-toggle #choice2{
-    display: none;
-
-
-  }
-  #tableForCom{
-    width:80%;
-    padding:0;
-    margin:0;
-  }
-  
-  #tableForRes{
-    width:80%;
-    padding:0;
-    margin:0;
-  }
-
-</style>
-
-<style>
-
-.remove {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    background-color: tomato;
-    color: white;
-    border: none;
-    border-radius: 15px;
-}
-
-button:hover {
-    cursor: pointer;
-}
-tr:hover {
-    cursor: move;
-}
+      height:200px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      padding-right: 10%;
+      padding-left: 2%;
+      border-left: 5px solid rgb(51, 122, 183);
 
 
 
-/****************************calculator menus layout start *********************************/
-#choices{
-  align-content: center;
-  justify-content: center;
-  text-align: center;
-  height:70%;
-}
-.stateForCom,.stateForRes{
-  
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  width: 100px;
-  height: 50px;
-  position: relative;
-  top:30px;
-}
-#firstRowForCom{
-  position: relative;
-  left:20%;
-  top: 0;
-}
+    }
+    .comSlider,.resSlider{
+      position: relative;
+      top:10%;
+      /*left:20%;*/
+      padding:0 10%;
+      text-align: center;
+    }
 
-#resState{
-  
-  position: relative;
-  left:20%;
-  top:30px;
-}
-#hideRoomForRes{
-  position: relative;
-  left:20%;
-  top:20px;
-  
+    #addRowForCom,#addRowForRes{
+      position: relative;
+      cursor: pointer;
+      /*top:15px;*/ 
+    }
 
+    /*operating days/year*/
+    #comSlideVal,#resSlideVal{
+      position: relative;
+      top:0;
+    
+    }
 
-}
-#secondRow{
-  position: relative;
-  top:20px;
-  left:20%;
- 
+    /*subsection menu for menus*/
+    #subsection{
+      position: absolute;
+      top:5%;
+      bottom:5%;
+      left:3%;
+      width:94%;
+      height: 90%;
+      background-color: #fff;
+      border-radius: 1.0rem;
+      padding: 3%;
+      
+    }
+    /*aside menu for results*/
+    #sideForCom{
+      display:none;
+      position: absolute;
+      top:0;
+      right: -57%; 
+      width: 52%;
+      height: 100%;
+      background-color: white;
+      border-radius: 1.0rem;
+      padding: 3%;
+    }
+    #sideForRes{
+      display:none;
+      position: absolute;
+      top:0;
+      right: -57%; 
+      width: 52%;
+      height: 100%;
+      background-color: white;
+      border-radius: 1.0rem;
+      padding: 3%;
+    }
+    /*tables*/
+    td{
 
-}
-.comSlider,.resSlider{
-position: relative;
-top:10%;
-left:20%;
-}
+      text-align: center;
+      padding-bottom: 10px;  
+    }
+    tr{
+      white-space:nowrap;
+      
+      
 
-#addRowForCom,#addRowForRes{
-  position: relative;
-  cursor: pointer;
- /*top:15px;*/ 
-}
-
-/*operating days/year*/
-#comSlideVal,#resSlideVal{
-  position: relative;
-  top:0;
-  left:20%;
-}
-
-/*subsection menu for menus*/
-  #subsection{
-    position: absolute;
-    top:5%;
-    bottom:5%;
-    left:3%;
-    width:94%;
-    height: 90%;
-    background-color: #fff;
-    border-radius: 1.0rem;
-  }
-/*aside menu for results*/
-  #sideForCom{
-    display:none;
-    position: absolute;
-    top:0;
-    width: 52%;
-    height: 100%;
-    right: -57%; 
-    background-color: white;
-    border-radius: 1.0rem;
-  }
-  #sideForRes{
-    display:none;
-    position: absolute;
-    top:0;
-    right: -57%; 
-    width: 52%;
-    height: 100%;
-    background-color: white;
-    border-radius: 1.0rem;
-  }
-  /*tables*/
-  td{
-
-  text-align: center;
-  padding-bottom: 20px;  
     }
 
 
-/****************************calculator menus layout end *********************************/
+    /****************************calculator menus layout end *********************************/
 
-/*stateForCom styling*/   
-.bulbListForRes,.roomType,.bulbListForCom,
-#resBulbList1,.roomTypeOption,.bulbListForComOption
-{
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  width: 160px;
-  height: 50px;
-  margin-right: 10px;
-}
-
-#comNumOfBulb,#resNumOfBulb,
-#resNumOfBulb1,#comNumOfBulb1
-{
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  width: 120px;
-  height: 50px;
-  margin-right:10px;
-
-}
-#removeForCom,#removeForRes{
-  margin-left: 10px;
-  cursor: pointer;
-}
-#numOfRoom,.numOfRoomOption{
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  width: 100px;
-  height: 50px;
-  margin-right:20px;
-}
-#resNumOfHour,#resNumOfHour1
-{
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  width: 160px;
-  height: 50px;
-  
-}
-
-/*image buttons style*/
-.commercial,.residential
-{
-  position: relative;
-  width: 20%;
-  height: 50%;
-  margin-bottom:20px;
-  padding: 0 10px;
-  text-align: left;    
-  font-size: 16px;
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-  margin-right:30px;
-  }
-  .commercial:hover,.residential:hover
-  ,.commercialAfterIcon:hover,
-  .residentialAfterIcon:hover{
-
-    background:#337ab7;
+    /*stateForCom styling*/   
+    .bulbListForRes,.roomType,.bulbListForCom,
+    #resBulbList1,.roomTypeOption,.bulbListForComOption
+    {
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff; 
+      height: 50px;
+      margin-right: 10px;
+      position: relative;
+      padding: 0 10px;
+      font-size: 16px;
+      overflow:hidden;
     }
 
-.commercialAfterIcon,.residentialAfterIcon
-{
-  position: relative;
-  width: 150px;
-  height: 50px;
-  padding: 0 10px;
-  text-align: left;        
-  font-size: 16px;
-  border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
-  background: #fff;
-}
-.commercial:hover,.residential:hover{
-  background:#59a1e0da;    
-}
+    #comNumOfBulb,#resNumOfBulb,
+    #resNumOfBulb1,#comNumOfBulb1
+    {
+     border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff;
+      width: 110px;
+      height: 50px;
+      margin-right: 10px;
+      position: relative;
+      padding: 0 10px;
+      font-size: 16px;
+      overflow:hidden;
 
-.commercial img 
-{  
-  left: 18%;
-  top: 10%;
-  position: absolute;
-}
-.residential img 
-{  
-  left: 15%;
-  top: 10%;
-  position: absolute;
-}
-.commercial h1,.residential h1
+
+    }
+    #removeForCom,#removeForRes{
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    #numOfRoom,.numOfRoomOption{
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff;
+      width: 110px;
+      height: 50px;
+      
+      margin-right: 10px;
+      position: relative;
+      padding: 0 10px;
+      font-size: 16px;
+      overflow:hidden;
+
+    }
+    #resNumOfHour,#resNumOfHour1
+    {
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff;
+      width: 180px;
+      height: 50px;
+      margin-right: 10px;
+      position: relative;
+      padding: 0 10px;
+      font-size: 16px;
+      overflow:hidden;
+
+
+    }
+
+    /*image buttons style*/
+    .CRButton{
+      height:100%;
+      width:100%;
+    }
+    .commercial,.residential
+    {
+      position: relative;
+      width: 20%;
+      height: 55%;    
+      font-size: 16px;
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 2rem;
+      background: #fff;
+      margin-right:30px;
+
+    }
+  
+    .commercialAfterIcon:hover,
+    .residentialAfterIcon:hover{
+    border: 3px solid #337ab7; 
+      
+    }
+
+    .commercialAfterIcon,.residentialAfterIcon
+    {
+      position: relative;
+      height: 50px;
+      padding: 0 10px;
+      font-size: 16px;
+      border: 2px solid rgb(148, 148, 148);
+      border-radius: 50px;
+      background: #fff;
+      overflow:hidden;
+      margin-right: 10px;
+      text-overflow:ellipsis;
+      overflow:hidden;
+    }
+    .commercial:hover,.residential:hover{
+      /*background:#59a1e0da;*/  
+      border: 5px solid #337ab7;  
+    }
+
+    .commercial img, .residential img 
+    {  
+      height:55%;
+      width: 50%;
+      top:20%;
+    }
+
+/*.commercial h1,.residential h1
 {     position: absolute;
+ margin:0px auto;
+ }*/
 
-  left: 20%;
-  top: 75%;
-}
-
-.commercialAfterIcon h6,.residentialAfterIcon h6
-{ 
-  position: absolute;
-  left: 20%;
-  top: 32%;
+ .commercialAfterIcon h6,.residentialAfterIcon h6
+ { 
+  position: relative;
+  margin:5% auto;
+  text-align: center;
+  /*left: 20%;
+  top: 32%;*/
 }
 #myChart,#myChart1{
-position: relative;
-top:50px;
+  position: relative;
+
 }
 
 /*electrictiy waste result*/
 #special,#special1{
   position: relative;
-  top:30px;
-  margin-left:45px;
+  /*top:30px;*/
+  /*margin-left:45px;*/
 
 }
 #dataForRes,#dataForCom{
   position: relative;
-  top:15%;
-  margin-left:45px;
+  margin-top:5%;
+  
 
 }
 
 .box1, .box2, .box3
 {
   display:inline-block;
-  height: 170px;
+  
   width: 28%;
   z-index: 10;
   border-color: black;
   border-radius:0.8rem;
   border: 2px solid rgb(148, 148, 148);
-  border-radius: 50px;
+  border-radius: 1rem;
   background: #fff;
   margin:1%;
+  text-align: center;
+  overflow: hidden;
 }
 
 .box1 img,.box2 img,.box3 img{
   position:relative;
-  top:100%;
-  left:23%; 
+  margin:10% auto;
+  
 }
 /*only second box was a little off*/
 
 .box1 img{
   position:relative;
-  top:10px;
+  
   
 }
 .box1 h6,.box2 h6,.box3 h6{
   position:relative;
-  top:20px;
-  left:5px;
+  font-size:12px;
+  
   
 }
 #dataForCom h2,#dataForRes h2{
@@ -527,8 +591,10 @@ top:50px;
   
 }
 .iconFont{
-
+  margin:5px auto;
   font-size: 2vw;
+  font-weight:400;
+
 }
 
 #addRowForCom{
@@ -559,107 +625,114 @@ top:50px;
 }
 .boxContainer{
   position: relative;
-  top:-20px;
+  text-align: center;
+
+  
 }
 </style>
 
 </head>
 
 <body >
-  
-<section >
-  <div id = "subsection">   
-    <h1 id = "header">Lighting Waste Calculator</h1>
-    <!--div for first screen -->
-    <div class="choice" id="choices">
 
-      <!--select commercial or residential-->
-      <h2 id ="welcomeHeader"></h2><br><br>
-      
-      <div id="location">
-      <!--map icon-->
-      <i id = "cal-icon" class="fas fa-map-marker-alt fa-3x" ></i>      
-      <!--block for location-->
-      <form style=" display:inline-block;" >
-        <div  type="text" id="loc" name="fname"  value=""><span id="demo"></span>
+  <section >
+    <div id = "subsection">   
+      <h1 id = "header">Lighting Waste Calculator</h1>
+      <!--div for first screen -->
+      <div class="choice" id="choices">
+
+        <!--select commercial or residential-->
+        <h2 id ="welcomeHeader"></h2><br><br>
+
+        <div id="location">
+          <!--map icon-->
+          <!-- <i id = "cal-icon" class="fas fa-map-marker-alt fa-3x" ></i>  --> 
+          <img src="img/location.svg" class="locate" alt="" id = "cal-icon">    
+          <!--block for location-->
+          <form style=" display:inline-block;" >
+            <div  type="text" id="loc" name="fname"  value=""><span id="demo"></span>
+            </div>
+          </form></div><br><br><br>
+          <!--commercial icon-->
+          <div class="CRButton">
+          <button class="commercial" value ="COM" id = "commercial">               
+            <!-- <img src="img/city.svg" alt="" > -->
+            <img src="img/building.svg" alt="" >
+            <h1 class = "iconFont">Commercial</h1>
+          </button>
+          <!--residential icon-->
+          <button class="residential" value ="RES" id = "residential">               
+            <!-- <img src="img/home.svg" alt="" > -->
+            <img src="img/house.svg" alt="" >
+            <h1 class = "iconFont">Residential</h1>
+          </button>
+          </div>
+
+        </div> 
+        <!--the frist row buttons-->
+        <div id="firstRowForCom">     
+          <button class="commercialAfterIcon"   value ="COM" id = "commercial1"   ><h6>Commercial</h6> </button>
+          <button class="residentialAfterIcon"  value ="RES"   id = "residential1"   ><h6>Residential</h6> </button>
+
+          <select required  class="stateForCom" id="comState" name ="stateForCom" data-style="btn-primary" >
+            <option class="Not Specified" selected> State</option>
+            <option id ="alComPrice" class="dropdown-item" href="#" value="1" data-subtext=" ">AL</option>
+            <option id ="akComPrice" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
+            <option id ="azComPrice" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
+            <option id ="arComPrice" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
+            <option id ="caComPrice" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
+            <option id ="coComPrice" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
+            <option id ="ctComPrice" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
+            <option id ="deComPrice" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
+            <option id ="flComPrice" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
+            <option id ="gaComPrice" class="dropdown-item" href="#" value="10"  data-subtext=" ">GA</option>
+            <option id ="hiComPrice" class="dropdown-item" href="#" value="11"  data-subtext=" ">HI</option>
+            <option id ="idComPrice" class="dropdown-item" href="#" value="12"  data-subtext=" ">ID</option>
+            <option id ="ilComPrice" class="dropdown-item" href="#" value="13"  data-subtext=" ">IL</option>
+            <option id ="inComPrice" class="dropdown-item" href="#" value="14"  data-subtext=" ">IN</option>
+            <option id ="iaComPrice" class="dropdown-item" href="#" value="15"  data-subtext=" ">IA</option>
+            <option id ="ksComPrice" class="dropdown-item" href="#" value="16"  data-subtext=" ">KS</option>
+            <option id ="kyComPrice" class="dropdown-item" href="#" value="17"  data-subtext=" ">KY</option>
+            <option id ="laComPrice" class="dropdown-item" href="#" value="18"  data-subtext=" ">LA</option>
+            <option id ="meComPrice" class="dropdown-item" href="#" value="19"  data-subtext=" ">ME</option>
+            <option id ="mdComPrice" class="dropdown-item" href="#" value="20"  data-subtext=" ">MD</option>
+            <option id ="maComPrice" class="dropdown-item" href="#" value="21"  data-subtext=" ">MA</option>
+            <option id ="miComPrice" class="dropdown-item" href="#" value="22"  data-subtext=" ">MI</option>
+            <option id ="mnComPrice" class="dropdown-item" href="#" value="23"  data-subtext=" ">MN</option>
+            <option id ="msComPrice" class="dropdown-item" href="#" value="24"  data-subtext=" ">MS</option>
+            <option id ="moComPrice" class="dropdown-item" href="#" value="25"  data-subtext=" ">MO</option>
+            <option id ="mtComPrice" class="dropdown-item" href="#" value="26"  data-subtext=" ">MT</option>
+            <option id ="neComPrice" class="dropdown-item" href="#" value="27"  data-subtext=" ">NE</option>
+            <option id ="nvComPrice" class="dropdown-item" href="#" value="28"  data-subtext=" ">NV</option>
+            <option id ="nhComPrice" class="dropdown-item" href="#" value="29"  data-subtext=" ">NH</option>
+            <option id ="njComPrice" class="dropdown-item" href="#" value="30"  data-subtext=" ">NJ</option>
+            <option id ="nmComPrice" class="dropdown-item" href="#" value="31"  data-subtext=" ">NM</option>
+            <option id ="nyComPrice" class="dropdown-item" href="#" value="32"  data-subtext=" ">NY</option>
+            <option id ="ncComPrice" class="dropdown-item" href="#" value="33"  data-subtext=" ">NC</option>
+            <option id ="ndComPrice" class="dropdown-item" href="#" value="34"  data-subtext=" ">ND</option>
+            <option id ="ohComPrice" class="dropdown-item" href="#" value="35"  data-subtext=" ">OH</option>
+            <option id ="okComPrice" class="dropdown-item" href="#" value="36"  data-subtext=" ">OK</option>
+            <option id ="orComPrice" class="dropdown-item" href="#" value="37"  data-subtext=" ">OR</option>
+            <option id ="paComPrice" class="dropdown-item" href="#" value="38"  data-subtext=" ">PA</option>
+            <option id ="riComPrice" class="dropdown-item" href="#" value="39"  data-subtext=" ">RI</option>
+            <option id ="scComPrice" class="dropdown-item" href="#" value="40"  data-subtext=" ">SC</option>
+            <option id ="sdComPrice" class="dropdown-item" href="#" value="41"  data-subtext=" ">SD</option>
+            <option id ="tnComPrice" class="dropdown-item" href="#" value="42"  data-subtext=" ">TN</option>
+            <option id ="txComPrice" class="dropdown-item" href="#" value="43"  data-subtext=" ">TX</option>
+            <option id ="utComPrice" class="dropdown-item" href="#" value="44"  data-subtext=" ">UT</option>
+            <option id ="vtComPrice" class="dropdown-item" href="#" value="45"  data-subtext=" ">VT</option>
+            <option id ="vaComPrice" class="dropdown-item" href="#" value="46"  data-subtext=" ">VA</option>
+            <option id ="waComPrice" class="dropdown-item" href="#" value="47"  data-subtext=" ">WA</option>
+            <option id ="wvComPrice" class="dropdown-item" href="#" value="48"  data-subtext=" ">WV</option>
+            <option id ="wiComPrice" class="dropdown-item" href="#" value="49"  data-subtext=" ">WI</option>
+            <option id ="wyComPrice" class="dropdown-item" href="#" value="50"  data-subtext=" ">WY</option>
+          </select >
+          <button id="addRowForCom">Add Room</button>
+
         </div>
-      </form></div><br><br><br>
-      <!--commercial icon-->
-      <button class="commercial" value ="COM" id = "commercial">               
-      <div ><img src="img/city.svg" alt=""   height="63%" width="63%"></div>
-      <h1 class = "iconFont">Commercial</h1>
-        </button>
-      <!--residential icon-->
-      <button class="residential" value ="RES" id = "residential">               
-        <div ><img src="img/home.svg" alt=""   height="63%" width="63%"></div>
-        <h1 class = "iconFont">Residential</h1>
-        </button>
-
-    </div> 
-<!--the frist row buttons-->
-<div id="firstRowForCom">     
-        <button class="commercialAfterIcon"   value ="COM" id = "commercial1"   ><h6>Commercial</h6> </button>
-        <button class="residentialAfterIcon"  value ="RES"   id = "residential1"   ><h6>Residential</h6> </button>
-        
-  <select required  class="stateForCom" id="comState" name ="stateForCom" data-style="btn-primary" >
-        <option class="Not Specified" selected> State</option>
-        <option id ="alComPrice" class="dropdown-item" href="#" value="1" data-subtext=" ">AL</option>
-        <option id ="akComPrice" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
-        <option id ="azComPrice" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
-        <option id ="arComPrice" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
-        <option id ="caComPrice" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
-        <option id ="coComPrice" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
-        <option id ="ctComPrice" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
-        <option id ="deComPrice" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
-        <option id ="flComPrice" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
-        <option id ="gaComPrice" class="dropdown-item" href="#" value="10"  data-subtext=" ">GA</option>
-        <option id ="hiComPrice" class="dropdown-item" href="#" value="11"  data-subtext=" ">HI</option>
-        <option id ="idComPrice" class="dropdown-item" href="#" value="12"  data-subtext=" ">ID</option>
-        <option id ="ilComPrice" class="dropdown-item" href="#" value="13"  data-subtext=" ">IL</option>
-        <option id ="inComPrice" class="dropdown-item" href="#" value="14"  data-subtext=" ">IN</option>
-        <option id ="iaComPrice" class="dropdown-item" href="#" value="15"  data-subtext=" ">IA</option>
-        <option id ="ksComPrice" class="dropdown-item" href="#" value="16"  data-subtext=" ">KS</option>
-        <option id ="kyComPrice" class="dropdown-item" href="#" value="17"  data-subtext=" ">KY</option>
-        <option id ="laComPrice" class="dropdown-item" href="#" value="18"  data-subtext=" ">LA</option>
-        <option id ="meComPrice" class="dropdown-item" href="#" value="19"  data-subtext=" ">ME</option>
-        <option id ="mdComPrice" class="dropdown-item" href="#" value="20"  data-subtext=" ">MD</option>
-        <option id ="maComPrice" class="dropdown-item" href="#" value="21"  data-subtext=" ">MA</option>
-        <option id ="miComPrice" class="dropdown-item" href="#" value="22"  data-subtext=" ">MI</option>
-        <option id ="mnComPrice" class="dropdown-item" href="#" value="23"  data-subtext=" ">MN</option>
-        <option id ="msComPrice" class="dropdown-item" href="#" value="24"  data-subtext=" ">MS</option>
-        <option id ="moComPrice" class="dropdown-item" href="#" value="25"  data-subtext=" ">MO</option>
-        <option id ="mtComPrice" class="dropdown-item" href="#" value="26"  data-subtext=" ">MT</option>
-        <option id ="neComPrice" class="dropdown-item" href="#" value="27"  data-subtext=" ">NE</option>
-        <option id ="nvComPrice" class="dropdown-item" href="#" value="28"  data-subtext=" ">NV</option>
-        <option id ="nhComPrice" class="dropdown-item" href="#" value="29"  data-subtext=" ">NH</option>
-        <option id ="njComPrice" class="dropdown-item" href="#" value="30"  data-subtext=" ">NJ</option>
-        <option id ="nmComPrice" class="dropdown-item" href="#" value="31"  data-subtext=" ">NM</option>
-        <option id ="nyComPrice" class="dropdown-item" href="#" value="32"  data-subtext=" ">NY</option>
-        <option id ="ncComPrice" class="dropdown-item" href="#" value="33"  data-subtext=" ">NC</option>
-        <option id ="ndComPrice" class="dropdown-item" href="#" value="34"  data-subtext=" ">ND</option>
-        <option id ="ohComPrice" class="dropdown-item" href="#" value="35"  data-subtext=" ">OH</option>
-        <option id ="okComPrice" class="dropdown-item" href="#" value="36"  data-subtext=" ">OK</option>
-        <option id ="orComPrice" class="dropdown-item" href="#" value="37"  data-subtext=" ">OR</option>
-        <option id ="paComPrice" class="dropdown-item" href="#" value="38"  data-subtext=" ">PA</option>
-        <option id ="riComPrice" class="dropdown-item" href="#" value="39"  data-subtext=" ">RI</option>
-        <option id ="scComPrice" class="dropdown-item" href="#" value="40"  data-subtext=" ">SC</option>
-        <option id ="sdComPrice" class="dropdown-item" href="#" value="41"  data-subtext=" ">SD</option>
-        <option id ="tnComPrice" class="dropdown-item" href="#" value="42"  data-subtext=" ">TN</option>
-        <option id ="txComPrice" class="dropdown-item" href="#" value="43"  data-subtext=" ">TX</option>
-        <option id ="utComPrice" class="dropdown-item" href="#" value="44"  data-subtext=" ">UT</option>
-        <option id ="vtComPrice" class="dropdown-item" href="#" value="45"  data-subtext=" ">VT</option>
-        <option id ="vaComPrice" class="dropdown-item" href="#" value="46"  data-subtext=" ">VA</option>
-        <option id ="waComPrice" class="dropdown-item" href="#" value="47"  data-subtext=" ">WA</option>
-        <option id ="wvComPrice" class="dropdown-item" href="#" value="48"  data-subtext=" ">WV</option>
-        <option id ="wiComPrice" class="dropdown-item" href="#" value="49"  data-subtext=" ">WI</option>
-        <option id ="wyComPrice" class="dropdown-item" href="#" value="50"  data-subtext=" ">WY</option>
-  </select >
-  <button id="addRowForCom">Add Building</button>
-
-  </div>
 
 
-  <!--button order for commercial-->
+        <!--button order for commercial-->
   <!--  
   1.state
   2. add button, roomtypes ,number of room, bulbtypes, number of bulbs, delete button
@@ -670,100 +743,100 @@ top:50px;
   <td style="display: inline-block;">
         <i class="fas fa-plus-circle fa-2x" style="color:rgb(148, 148, 148);" ></i>
               </td>
--->
-  <!--1. state --> 
-  <div id="secondRow">  
-    <table id ="tableForCom">
-      <tbody style="width: 126%; height:auto; display:table;">
-          <tr>
-            <!--2. room type -->
-            <td style="display: inline-block;">
-              <select class="roomType" text="hi" id="comRoomType"  data-style="btn-primary" >
-                  <option class="Not Specified" selected> Room Type</option>
-                  <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom </option> 
-                  <option class="dropdown-item" href="#" value="10.32" data-subtext="10.32 Hours Wasted">Classroom</option>  
-                  <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>  
-                  <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option> 
-                  <option class="dropdown-item" href="#" value="7.56"  data-subtext="7.56 Hours Wasted">Office, Private</option>
-                  <option class="dropdown-item" href="#" value="2.4"   data-subtext="2.4 Hours Wasted">Office, Open</option>
-                  <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>
-                  <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>   
-                  <option class="dropdown-item" href="#" value="10.68" data-subtext="10.68 Hours Wasted">Warehouse</option>   
-              </select >
+            -->
+            <!--1. state --> 
+            <div id="secondRow">  
+              <table id ="tableForCom">
+                <tbody style="display:table;">
+                  <tr>
+                    <!--2. room type -->
+                    <td style="display: inline-block;">
+                      <select class="roomType" text="hi" id="comRoomType"  data-style="btn-primary" >
+                        <option class="Not Specified" selected> Room Type</option>
+                        <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom </option> 
+                        <option class="dropdown-item" href="#" value="10.32" data-subtext="10.32 Hours Wasted">Classroom</option>  
+                        <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>  
+                        <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option> 
+                        <option class="dropdown-item" href="#" value="7.56"  data-subtext="7.56 Hours Wasted">Office, Private</option>
+                        <option class="dropdown-item" href="#" value="2.4"   data-subtext="2.4 Hours Wasted">Office, Open</option>
+                        <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>
+                        <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>   
+                        <option class="dropdown-item" href="#" value="10.68" data-subtext="10.68 Hours Wasted">Warehouse</option>   
+                      </select >
 
-              </td>
+                    </td>
 
-              <!--3. number of room-->  
-              <td style="display: inline-block;">
-                <div  required style="width:100%;"   id="numOfRoomForCom">        
-                  <input type="text" name="nubmer" id="numOfRoom" placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                    <!--3. number of room-->  
+                    <td style="display: inline-block;">
+                      <div  required style="width:100%;"   id="numOfRoomForCom">        
+                        <input type="text" name="nubmer" id="numOfRoom" placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                      </div>
+                    </td>
+                    <!--4. bulbs type -->   
+                    <td style="display: inline-block;">
+                      <select required class="bulbListForCom"  id="comBulbList" data-style="btn-primary" >
+                        <option class="Not Specified" selected>  Bulb Type</option>
+                        <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option> 
+                        <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>  
+                        <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option> 
+                        <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>
+                        <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>   
+                      </select>
+                    </td>
+
+                    <!--5. number of bulbs-->    
+                    <td style="display: inline-block;">
+                      <div   id="numOfBulbForCom" >   
+                        <input required type="text" name="nubmer" id="comNumOfBulb"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+                      </div>
+                    </td>
+
+                    <!--6. delete button-->    
+                    <td style="display: inline-block;"> 
+                      <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148); "></i>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!--6. slider-->
+            <div class="comSlider" id ="numOfDayForCom">
+
+              <input  class = "sliderForCom"type="range" min="1" max="365"value ='0' id="comSlideId"step="1">
+              <br><span id="comSlideVal" class= "day" style="">1 Operating Day/Year</span>
+
+            </div>
+
+            <!--7. Results display-->    
+            <aside>
+              <div id="sideForCom">   
+                <h4 id= "special">Electricity Waste = <span id="elecForCom"></span></h4>
+                <canvas id="myChart" width="30%" height="18%"></canvas>
+
+                <!--CO2 image icon-->
+                <div class="rightForCom"id= "dataForCom">
+                  <h4>CO2 Waste = <span id="co2wasteForCom"></span></h4>
+                  <!--<h4>This CO2 waste is equivalent to: </h4> -->
+                  <!--little box for each co2 icon-->   
+                  <div class="boxContainer">
+                    <div class = "box1">
+                      <img src="img/mobile-phone.png" alt="lighting waste calculator" width="45%" height="45%"/><h6>smartphones charged:<span id="phoneChargesForCom"></span></h6>
+                    </div>
+
+                    <div class = "box2">
+                      <img src="img/vehicles.png" alt="lighting waste calculator" width="45%" height="45%"/> <h6>miles driven by vehicle:<span id="milesDrivenForCom"></span></h6>
+                    </div>
+
+                    <div class = "box3">
+                      <img src="img/coal.png" alt="lighting waste calculator" width="45%" height="45%" /><h6>pounds of coal burned:<span id="coalBurnedForCom"></span></h6>
+                    </div>
+                  </div>
                 </div>
-              </td>
-              <!--4. bulbs type -->   
-              <td style="display: inline-block;">
-                <select required class="bulbListForCom"  id="comBulbList" data-style="btn-primary" >
-                    <option class="Not Specified" selected>  Bulb Type</option>
-                    <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option> 
-                    <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>  
-                    <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option> 
-                    <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>
-                    <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>   
-                </select>
-              </td>
+              </aside>
 
-              <!--5. number of bulbs-->    
-              <td style="display: inline-block;">
-                <div   id="numOfBulbForCom" >   
-                  <input required type="text" name="nubmer" id="comNumOfBulb"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
-                </div>
-              </td>
-
-              <!--6. delete button-->    
-              <td style="display: inline-block;"> 
-                <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148); "></i>
-              </td>
-              
-          </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!--6. slider-->
-  <div class="comSlider" id ="numOfDayForCom">
-      
-    <input  class = "sliderForCom"type="range" min="1" max="365"value ='0' id="comSlideId"step="1">
-    <br><span id="comSlideVal" class= "day" style="margin-right:50px;">1 Operating Day/Year</span>
-
-  </div>
-
-<!--7. Results display-->    
-  <aside>
-    <div id="sideForCom">   
-      <h2 id= "special">Electricity Waste = <span id="elecForCom"></span></h2>
-      <canvas id="myChart" width="30%" height="18%"></canvas>
-
-      <!--CO2 image icon-->
-      <div class="rightForCom"id= "dataForCom">
-          <h2>CO2 Waste = <span id="co2wasteForCom"></span></h2>
-          <!--<h4>This CO2 waste is equivalent to: </h4> -->
-          <!--little box for each co2 icon-->   
-          <div class="boxContainer">
-          <div class = "box1">
-            <img src="img/mobile-phone.png" alt="lighting waste calculator" width="48%" height="48%"/><h6>smartphones charged:<span id="phoneChargesForCom"></span></h6>
-          </div>
-
-          <div class = "box2">
-            <img src="img/vehicles.gif" alt="lighting waste calculator" width="48%" height="48%"/> <h6>miles driven by vehicle:<span id="milesDrivenForCom"></span></h6>
-          </div>
-
-          <div class = "box3">
-            <img src="img/coal.gif" alt="lighting waste calculator" width="48%" height="48%" /><h6>pounds of coal burned:<span id="coalBurnedForCom"></span></h6>
-        </div>
-      </div>
-    </div>
-  </aside>
-
-  <!--button order for residential-->
+              <!--button order for residential-->
   <!--  
   1.state
   2. add button, bulbtypes, number of bulbs,number of hours wasted,delete button
@@ -774,85 +847,86 @@ top:50px;
   <!--1. state -->
   <div id="firstRowForRes">     
 
-  <select    class= "stateForRes" id= "resState" name = "stateForRes"   data-style="btn-primary" >
-  <option class="Not Specified" selected>Select State</option> 
-  <option id ="alRes" class="dropdown-item" href="#" value="1"  data-subtext=" " >AL</option>
-  <option id ="akRes" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
-  <option id ="azRes" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
-  <option id ="arRes" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
-  <option id ="caRes" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
-  <option id ="coRes" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
-  <option id ="ctRes" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
-  <option id ="deRes" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
-  <option id ="flRes" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
-  <option id ="gaRes" class="dropdown-item" href="#" value="10" data-subtext=" ">GA</option>
-  <option id ="hiRes" class="dropdown-item" href="#" value="11" data-subtext=" ">HI</option>
-  <option id ="idRes" class="dropdown-item" href="#" value="12" data-subtext=" ">ID</option>
-  <option id ="ilRes" class="dropdown-item" href="#" value="13" data-subtext=" ">IL</option>
-  <option id ="inRes" class="dropdown-item" href="#" value="14" data-subtext=" ">IN</option>
-  <option id ="iaRes" class="dropdown-item" href="#" value="15" data-subtext=" ">IA</option>
-  <option id ="ksRes" class="dropdown-item" href="#" value="16" data-subtext=" ">KS</option>
-  <option id ="kyRes" class="dropdown-item" href="#" value="17" data-subtext=" ">KY</option>
-  <option id ="laRes" class="dropdown-item" href="#" value="18" data-subtext=" ">LA</option>
-  <option id ="meRes" class="dropdown-item" href="#" value="19" data-subtext=" ">ME</option>
-  <option id ="mdRes" class="dropdown-item" href="#" value="20" data-subtext=" ">MD</option>
-  <option id ="maRes" class="dropdown-item" href="#" value="21" data-subtext=" ">MA</option>
-  <option id ="miRes" class="dropdown-item" href="#" value="22" data-subtext=" ">MI</option>
-  <option id ="mnRes" class="dropdown-item" href="#" value="23" data-subtext=" ">MN</option>
-  <option id ="msRes" class="dropdown-item" href="#" value="24" data-subtext=" ">MS</option>
-  <option id ="moRes" class="dropdown-item" href="#" value="25" data-subtext=" ">MO</option>
-  <option id ="mtRes" class="dropdown-item" href="#" value="26" data-subtext=" ">MT</option>
-  <option id ="neRes" class="dropdown-item" href="#" value="27" data-subtext=" ">NE</option>
-  <option id ="nvRes" class="dropdown-item" href="#" value="28" data-subtext=" ">NV</option>
-  <option id ="nhRes" class="dropdown-item" href="#" value="29" data-subtext=" ">NH</option>
-  <option id ="njRes" class="dropdown-item" href="#" value="30" data-subtext=" ">NJ</option>
-  <option id ="nmRes" class="dropdown-item" href="#" value="31" data-subtext=" ">NM</option>
-  <option id ="nyRes" class="dropdown-item" href="#" value="32" data-subtext=" ">NY</option>
-  <option id ="ncRes" class="dropdown-item" href="#" value="33" data-subtext=" ">NC</option>
-  <option id ="ndRes" class="dropdown-item" href="#" value="34" data-subtext=" ">ND</option>
-  <option id ="ohRes" class="dropdown-item" href="#" value="35" data-subtext=" ">OH</option>
-  <option id ="okRes" class="dropdown-item" href="#" value="36" data-subtext=" ">OK</option>
-  <option id ="orRes" class="dropdown-item" href="#" value="37" data-subtext=" ">OR</option>
-  <option id ="paRes" class="dropdown-item" href="#" value="38" data-subtext=" ">PA</option>
-  <option id ="riRes" class="dropdown-item" href="#" value="39" data-subtext=" ">RI</option>
-  <option id ="scRes" class="dropdown-item" href="#" value="40" data-subtext=" ">SC</option>
-  <option id ="sdRes" class="dropdown-item" href="#" value="41" data-subtext=" ">SD</option>
-  <option id ="tnRes" class="dropdown-item" href="#" value="42" data-subtext=" ">TN</option>
-  <option id ="txRes" class="dropdown-item" href="#" value="43" data-subtext=" ">TX</option>
-  <option id ="utRes" class="dropdown-item" href="#" value="44" data-subtext=" ">UT</option>
-  <option id ="vtRes" class="dropdown-item" href="#" value="45" data-subtext=" ">VT</option>
-  <option id ="vaRes" class="dropdown-item" href="#" value="46" data-subtext=" ">VA</option>
-  <option id ="waRes" class="dropdown-item" href="#" value="47" data-subtext=" ">WA</option>
-  <option id ="wvRes" class="dropdown-item" href="#" value="48" data-subtext=" ">WV</option>
-  <option id ="wiRes" class="dropdown-item" href="#" value="49" data-subtext=" ">WI</option>
-  <option id ="wyRes" class="dropdown-item" href="#" value="50" data-subtext=" ">WY</option>
+    <select    class= "stateForRes" id= "resState" name = "stateForRes"   data-style="btn-primary" >
+      <option class="Not Specified" selected>State</option> 
+      <option id ="alRes" class="dropdown-item" href="#" value="1"  data-subtext=" " >AL</option>
+      <option id ="akRes" class="dropdown-item" href="#" value="2"  data-subtext=" ">AK</option>
+      <option id ="azRes" class="dropdown-item" href="#" value="3"  data-subtext=" ">AZ</option>
+      <option id ="arRes" class="dropdown-item" href="#" value="4"  data-subtext=" ">AR</option>
+      <option id ="caRes" class="dropdown-item" href="#" value="5"  data-subtext=" ">CA</option>
+      <option id ="coRes" class="dropdown-item" href="#" value="6"  data-subtext=" ">CO</option>
+      <option id ="ctRes" class="dropdown-item" href="#" value="7"  data-subtext=" ">CT</option>
+      <option id ="deRes" class="dropdown-item" href="#" value="8"  data-subtext=" ">DE</option>
+      <option id ="flRes" class="dropdown-item" href="#" value="9"  data-subtext=" ">FL</option>
+      <option id ="gaRes" class="dropdown-item" href="#" value="10" data-subtext=" ">GA</option>
+      <option id ="hiRes" class="dropdown-item" href="#" value="11" data-subtext=" ">HI</option>
+      <option id ="idRes" class="dropdown-item" href="#" value="12" data-subtext=" ">ID</option>
+      <option id ="ilRes" class="dropdown-item" href="#" value="13" data-subtext=" ">IL</option>
+      <option id ="inRes" class="dropdown-item" href="#" value="14" data-subtext=" ">IN</option>
+      <option id ="iaRes" class="dropdown-item" href="#" value="15" data-subtext=" ">IA</option>
+      <option id ="ksRes" class="dropdown-item" href="#" value="16" data-subtext=" ">KS</option>
+      <option id ="kyRes" class="dropdown-item" href="#" value="17" data-subtext=" ">KY</option>
+      <option id ="laRes" class="dropdown-item" href="#" value="18" data-subtext=" ">LA</option>
+      <option id ="meRes" class="dropdown-item" href="#" value="19" data-subtext=" ">ME</option>
+      <option id ="mdRes" class="dropdown-item" href="#" value="20" data-subtext=" ">MD</option>
+      <option id ="maRes" class="dropdown-item" href="#" value="21" data-subtext=" ">MA</option>
+      <option id ="miRes" class="dropdown-item" href="#" value="22" data-subtext=" ">MI</option>
+      <option id ="mnRes" class="dropdown-item" href="#" value="23" data-subtext=" ">MN</option>
+      <option id ="msRes" class="dropdown-item" href="#" value="24" data-subtext=" ">MS</option>
+      <option id ="moRes" class="dropdown-item" href="#" value="25" data-subtext=" ">MO</option>
+      <option id ="mtRes" class="dropdown-item" href="#" value="26" data-subtext=" ">MT</option>
+      <option id ="neRes" class="dropdown-item" href="#" value="27" data-subtext=" ">NE</option>
+      <option id ="nvRes" class="dropdown-item" href="#" value="28" data-subtext=" ">NV</option>
+      <option id ="nhRes" class="dropdown-item" href="#" value="29" data-subtext=" ">NH</option>
+      <option id ="njRes" class="dropdown-item" href="#" value="30" data-subtext=" ">NJ</option>
+      <option id ="nmRes" class="dropdown-item" href="#" value="31" data-subtext=" ">NM</option>
+      <option id ="nyRes" class="dropdown-item" href="#" value="32" data-subtext=" ">NY</option>
+      <option id ="ncRes" class="dropdown-item" href="#" value="33" data-subtext=" ">NC</option>
+      <option id ="ndRes" class="dropdown-item" href="#" value="34" data-subtext=" ">ND</option>
+      <option id ="ohRes" class="dropdown-item" href="#" value="35" data-subtext=" ">OH</option>
+      <option id ="okRes" class="dropdown-item" href="#" value="36" data-subtext=" ">OK</option>
+      <option id ="orRes" class="dropdown-item" href="#" value="37" data-subtext=" ">OR</option>
+      <option id ="paRes" class="dropdown-item" href="#" value="38" data-subtext=" ">PA</option>
+      <option id ="riRes" class="dropdown-item" href="#" value="39" data-subtext=" ">RI</option>
+      <option id ="scRes" class="dropdown-item" href="#" value="40" data-subtext=" ">SC</option>
+      <option id ="sdRes" class="dropdown-item" href="#" value="41" data-subtext=" ">SD</option>
+      <option id ="tnRes" class="dropdown-item" href="#" value="42" data-subtext=" ">TN</option>
+      <option id ="txRes" class="dropdown-item" href="#" value="43" data-subtext=" ">TX</option>
+      <option id ="utRes" class="dropdown-item" href="#" value="44" data-subtext=" ">UT</option>
+      <option id ="vtRes" class="dropdown-item" href="#" value="45" data-subtext=" ">VT</option>
+      <option id ="vaRes" class="dropdown-item" href="#" value="46" data-subtext=" ">VA</option>
+      <option id ="waRes" class="dropdown-item" href="#" value="47" data-subtext=" ">WA</option>
+      <option id ="wvRes" class="dropdown-item" href="#" value="48" data-subtext=" ">WV</option>
+      <option id ="wiRes" class="dropdown-item" href="#" value="49" data-subtext=" ">WI</option>
+      <option id ="wyRes" class="dropdown-item" href="#" value="50" data-subtext=" ">WY</option>
 
-  </select >
+    </select >
     <!--add button-->
-  <button id="addRowForRes">Add Building</button>
-</div>
+    <button id="addRowForRes">Add Room</button>
+  </div>
   <!--second row buttons -->
   <div id="hideRoomForRes" >
+
     <table id ="tableForRes">
-      <tbody style="width: 126%; height:auto; display:table;">
+      <tbody style=" display:table;">
         <tr>
 
           <!--2. bulb type-->    
           <td style="display: inline-block;">
-          <select   class="bulbListForRes" id="resBulbList" >
-                      <option class="Not Specified" >Bulb Type</option>
-                      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> 
-                      <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  
-                      <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> 
-                      <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>
-                      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   
-          </select>
+            <select   class="bulbListForRes" id="resBulbList" >
+              <option class="Not Specified" >Bulb Type</option>
+              <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> 
+              <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  
+              <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> 
+              <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>
+              <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   
+            </select>
           </td>
 
           <!--3.number of bulbs-->
           <td style="display: inline-block;">
             <div  style="width:90%;"  id="numOfBulbForRes">
-            <input type="text" name="nubmer" id="resNumOfBulb" class="form-control"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
+              <input type="text" name="nubmer" id="resNumOfBulb" class="form-control"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >
             </div>
           </td>
 
@@ -865,45 +939,45 @@ top:50px;
 
           <!--delete button-->
           <td style="display: inline-block;"> 
-              <i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i>
+            <i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i>
           </td>  
 
         </tr>
       </tbody>
     </table>
   </div>
-        
+
 
   <!--5. slider-->
   <div class="resSlider"id ="numOfDayForRes">
     <input  class = "sliderForRes"type="range" min="1" max="365"value ='0' id="resSlideId"step="1">
     <br><span id="resSlideVal" class= "day">1 Operating Day/Year</span>
   </div>
-      
+
 
   <!--6. Results display-->
   <aside>
     <div id="sideForRes">    
 
-      <h2 id= "special1" >Electricity Waste = <span id="elecForRes"></span></h2>
+      <h4 id= "special1" >Electricity Waste = <span id="elecForRes"></span></h4>
       <canvas id="myChart1" width="30%" height="18%"></canvas>
 
       <!--CO2 image icon-->
       <div class=  "rightForRes"  id = "dataForRes">
-        <h2>CO2 Waste = <span id="co2wasteForRes"></span></h2> 
-                <!--<h4>This CO2 waste is equivalent to: </h4> -->  
-          <div class="boxContainer">
+        <h4>CO2 Waste = <span id="co2wasteForRes"></span></h4> 
+        <!--<h4>This CO2 waste is equivalent to: </h4> -->  
+        <div class="boxContainer">
           <!--little box for co2 image-->
           <div class = "box1"> 
-            <img src="img/mobile-phone.png" alt="lighting waste calculator" width="48%" height="48%"/><h6>smartphones charged:<span id="phoneChargesForRes"></span></h6>
+            <img src="img/mobile-phone.png" alt="lighting waste calculator" width="45%" height="45%"/><h6>smartphones charged:<span id="phoneChargesForRes"></span></h6>
           </div> 
 
           <div class = "box2">
-            <img src="img/vehicles.gif" alt="lighting waste calculator" width="48%" height="48%"/> <h6>miles driven by vehicle:<span id="milesDrivenForRes"></span></h6>
+            <img src="img/vehicles.png" alt="lighting waste calculator" width="45%" height="45%"/> <h6>miles driven by vehicle:<span id="milesDrivenForRes"></span></h6>
           </div>
           
           <div class = "box3">
-            <img src="img/coal.gif" alt="lighting waste calculator" width="48%" height="48%" /><h6>pounds of coal burned: <span id="coalBurnedForRes"></span></h6>
+            <img src="img/coal.png" alt="lighting waste calculator" width="45%" height="45%" /><h6>pounds of coal burned: <span id="coalBurnedForRes"></span></h6>
           </div >
         </div>
       </div>
@@ -951,7 +1025,7 @@ top:50px;
 
   //////////////////////////electricity waste calculation function for commercial///////////////
   function commercialCal(comState,comRoomType,numOfRoom,comBulbList,comNumOfBulb,sliderForCom,comPrice){
-    
+
     var getcomState = document.getElementById("comState").value;   
     var getslide = document.getElementById("comSlideId").value;
     var slideval = document.getElementById('comSlideVal');
@@ -963,7 +1037,7 @@ top:50px;
     var threeYears = 0;
     var fiveYears = 0;
     var electricity = 0;
-  
+
     
     var conversion =0.001;
     var cost = comPrice; 
@@ -981,22 +1055,22 @@ top:50px;
     fiveYears = ((anual * cost) * year * 5).toFixed(0);
     //console.log(comBulbList +" "+ getslide +" "+ comNumOfBulb +" "+ comRoomType +" "+numOfRoom);
 
-  if(getslide=="Slider")
-  {
-    getslide = 0;
+    if(getslide=="Slider")
+    {
+      getslide = 0;
     }
-  slideval.innerHTML = getslide+" Operating Days/Year";
+    slideval.innerHTML = getslide+" Operating Days/Year";
 
 
-  function numberWithCommas(x) {
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
-  }
+    function numberWithCommas(x) {
+      var parts = x.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
+    }
 
  //console.log("Com finalElec: "+finalElec);
 
-  return finalElec;
+ return finalElec;
 }
 
   //////////////////////////electricity waste calculation function for residential///////////////
@@ -1009,8 +1083,8 @@ top:50px;
     var residentialValue = document.getElementById("residential").value;
 
    // console.log("residential value is: " + residentialValue)
-    if(residentialValue == "RES")
-    {
+   if(residentialValue == "RES")
+   {
 
     var anual = 0;
     var oneYear = 0;
@@ -1019,8 +1093,8 @@ top:50px;
     var electricity = 0;
     var conversion =0.001;
     var cost = resPrice; 
-  
-  
+
+
    //  console.log("resPrice value is: " + resPrice)
     var numOfSmartphoneCharges = 90.2; // # of smartphones charged per kWh
     var miles = 1.7; // # of miles driven per kWh
@@ -1033,7 +1107,7 @@ top:50px;
      var finalElec = (electricity * cost);
      document.getElementById("elecForRes").innerHTML  = "$" + (  electricity * cost).toFixed(2);
 
-    }
+   }
     anual = resBulbList * resNumOfBulb * resNumOfHour  * conversion; //electrcity calculation
     oneYear = ((anual * cost) * year).toFixed(2);
     threeYears = ((anual * cost) * year * 3).toFixed(2);
@@ -1041,12 +1115,12 @@ top:50px;
 
     if(getslide=="Slider")
     {
-    getslide = 0;
+      getslide = 0;
     }
     slideval.innerHTML = getslide+" Operating Days/Year";
 
     return finalElec;
-    }
+  }
 
 
   function numberWithCommas(x) {
@@ -1062,7 +1136,7 @@ top:50px;
 //////////////////////////////////Jquery function start/////////////////////////////////////////////
 //////////////////////////////////Jquery function start/////////////////////////////////////////////
 //////////////////////////////////Jquery function start/////////////////////////////////////////////
-    $(document).ready(function(){
+$(document).ready(function(){
 
     //functionality to caputure user's location
     var shortName=null;
@@ -1070,7 +1144,7 @@ top:50px;
     
     async function getLocation() {
       if (navigator.geolocation) {
-      await  navigator.geolocation.getCurrentPosition(showPosition);
+        await  navigator.geolocation.getCurrentPosition(showPosition);
       } 
       else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
@@ -1088,18 +1162,18 @@ top:50px;
       $.get({
         url:locAPI,
         success: function(data){
-            x.innerHTML = data.results[3].address_components[3].long_name + ', '; 
-            x.innerHTML += data.results[3].address_components[3].short_name;      
-            var state= data.results[3].address_components[3].short_name;
-            var state1 =data.results[3].address_components[2].short_name;
+          x.innerHTML = data.results[3].address_components[3].long_name + ', '; 
+          x.innerHTML += data.results[3].address_components[3].short_name;      
+          var state= data.results[3].address_components[3].short_name;
+          var state1 =data.results[3].address_components[2].short_name;
           
-            if(state=="PA" || state=="philadelphia"){
+          if(state=="PA" || state=="philadelphia"){
             getState(38,state);
-            }
+          }
 
 
         }  
-    });
+      });
     }
     getLocation();
 
@@ -1110,15 +1184,15 @@ top:50px;
 
     function setSelectedIndex(s, i)
     {
-    s.options[i].selected = true;
-    return;
+      s.options[i].selected = true;
+      return;
     }
 
     getState();
 
 
     function stateConversion(value,state){
-  
+
       $("#resState").change(function(){})
 
 
@@ -1137,8 +1211,8 @@ top:50px;
         //state conversion
         //callApiForCom = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
         //callApiForCom +=  state + dash +  chosenBuldingType3 + restWord;
-  callApiForCom = "/resource?state=" + state + "&buildingType=" + chosenBuldingType3 
-  fetchComData(callApiForCom)
+        callApiForCom = "/resource?state=" + state + "&buildingType=" + chosenBuldingType3 
+        fetchComData(callApiForCom)
 
 
       }
@@ -1151,8 +1225,8 @@ top:50px;
         //state conversion
         //callApiForRes = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
         //callApiForRes +=  state + dash + chosenBuldingType4 + restWord;
-  callApiForRes = "/resource?state=" + state + "&buildingType=" + chosenBuldingType4
-  fetchResData(callApiForRes);
+        callApiForRes = "/resource?state=" + state + "&buildingType=" + chosenBuldingType4
+        fetchResData(callApiForRes);
 
       }
     }
@@ -1171,17 +1245,17 @@ top:50px;
 
   $("#residential").click(function (){
 
-      var chosenstate2 = $("#residential").val();
+    var chosenstate2 = $("#residential").val();
 
-      if(chosenstate2 == "RES")
-      {
-      
-        residentialOption();
-      }
-    });
+    if(chosenstate2 == "RES")
+    {
+
+      residentialOption();
+    }
+  });
 
 
-$("#commercial1").click(function (){
+  $("#commercial1").click(function (){
 
     var chosenstate1 = $("#commercial1").val();
 
@@ -1192,7 +1266,7 @@ $("#commercial1").click(function (){
   });
 
 
-$("#residential1").click(function (){
+  $("#residential1").click(function (){
 
     var chosenstate2 = $("#residential1").val();
 
@@ -1200,7 +1274,7 @@ $("#residential1").click(function (){
     {
       residentialOption();
     }
-});
+  });
   //things that should display and should not display during commercial page 
   function commercialOption(){
     // section chagne
@@ -1209,31 +1283,31 @@ $("#residential1").click(function (){
    // $("#subsection").css({"margin-right" :"200px"});
    $("#subsection").css({"width":"60%","right":"100%"});
 
-    $("#commercial1").css({"display":"inline-block","background":"#337ab7"});
-    $("#residential1").css({"display":"inline-block","background":"white"});
-    $("#addRowForCom").css({"display":"inline-block","margin-left":"15%"});
-    $("#secondRow").css("display","inline-block");
-    $("#hideBulb").css("display","inline-block");
-    $("#comRoomType").css("display", "inline-block");
-    $(".stateForCom").css("display", "block");
-    $(".roomType").css("display", "inline-block");
-    $("#numOfRoomForCom").css("display", "inline-block");
-    $(".bulbListForCom").css("display", "inline-block");
-    $("#numOfBulbForCom").css("display", "inline-block");
-    $("#numOfDayForCom").css("display", "block");
-    $("#remove").css("display", "block");
-    $(".bulbListForComOption").css("display", "block");
-    $("#comRoomType1 ").css("display", "inline-block");
-    $("#numOfRoom1 ").css("display", "inline-block");
-    $("#comBulbList1 ").css("display", "inline-block");
-    $("#comNumOfBulb1 ").css("display", "inline-block");
-    $("#removeForCom ").css("display", "inline-block");
-    $("#sideForCom").css("display", "block");
+   $("#commercial1").css({"display":"inline-block","border": "3px solid #337ab7"});
+   $("#residential1").css({"display":"inline-block","border": "3px solid rgb(148,148,148)"});
+   $("#addRowForCom").css({"display":"inline-block","margin-left":"15%"});
+   $("#secondRow").css("display","inline-block");
+   $("#hideBulb").css("display","inline-block");
+   $("#comRoomType").css("display", "inline-block");
+   $(".stateForCom").css("display", "block");
+   $(".roomType").css("display", "inline-block");
+   $("#numOfRoomForCom").css("display", "inline-block");
+   $(".bulbListForCom").css("display", "inline-block");
+   $("#numOfBulbForCom").css("display", "inline-block");
+   $("#numOfDayForCom").css("display", "block");
+   $("#remove").css("display", "block");
+   $(".bulbListForComOption").css("display", "block");
+   $("#comRoomType1 ").css("display", "inline-block");
+   $("#numOfRoom1 ").css("display", "inline-block");
+   $("#comBulbList1 ").css("display", "inline-block");
+   $("#comNumOfBulb1 ").css("display", "inline-block");
+   $("#removeForCom ").css("display", "inline-block");
+   $("#sideForCom").css("display", "block");
 
 
     //things that should display none
     
-    $("#choices").css("height", "20%");
+    $("#choices").css("height", "10%");
     $("#header").css("display", "none");
     $("#cal-icon").css("display", "none");
     $("#loc").css("display", "none");
@@ -1257,12 +1331,12 @@ $("#residential1").click(function (){
 
   //things that should display and should not display during commercial page 
   function residentialOption(){
-    
+
     //things that should display block
     $("#subsection").css({"right" :"40%"});
     $("#subsection").css({"width" :"60%"});
-    $("#commercial1").css({"display":"inline-block","background":"white"});
-    $("#residential1").css({"display":"inline-block","background":"#337ab7"});
+    $("#commercial1").css({"display":"inline-block","border": "3px solid rgb(148,148,148)"});
+    $("#residential1").css({"display":"inline-block","border": "3px solid #337ab7"});
     $("#resState").css("display","block");
     $("#addRowForRes").css({"display":"inline-block","margin-left":"15%" });
     $("#removeForRes ").css("display", "inline-block");
@@ -1287,7 +1361,7 @@ $("#residential1").click(function (){
     $("#removeForCom ").css("display", "none");
 
     //things that should display none
-    $("#choices").css("height", "20%");
+    $("#choices").css("height", "10%");
 
     $("#cal-icon").css("display", "none");
     $("#loc").css("display", "none");
@@ -1304,18 +1378,18 @@ $("#residential1").click(function (){
     $("#header").css("display", "none");
   }
 
-    $("#comRoomType").change(function(){
-      $('#hideRoom .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
-    });
+  $("#comRoomType").change(function(){
+    $('#hideRoom .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
+  });
 
-    $("#comBulbList").change(function(){
-      $('#hideBulb .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
-    });
+  $("#comBulbList").change(function(){
+    $('#hideBulb .btn-primary').css({"background-color":"#425ff4","border-color":"#425ff4"});
+  });
 
 
     //state for commercial 
     $("#comState").change(function(){
-  
+
       var chosenCom = $("#comState").val();        //get state fist two inital letter
       var chosenBuldingType1 = $("#commercial").val();  //get COM or RES
       
@@ -1325,22 +1399,22 @@ $("#residential1").click(function (){
       "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"];
 
       var getCom = (states[parseInt(chosenCom)-1]).toUpperCase();
-          
+
       var dash ='-';
       var restWord = '.M';
 
       //state conversion
       //callApiForCom = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
       //callApiForCom +=  getCom + dash +  chosenBuldingType1 + restWord;
-  callApiForCom = "/resource?state=" + getCom + "&buildingType=" + chosenBuldingType1 
-  fetchComData(callApiForCom)
+      callApiForCom = "/resource?state=" + getCom + "&buildingType=" + chosenBuldingType1 
+      fetchComData(callApiForCom)
 
     });  
     
-      
+
     //state for residential
     $("#resState").change(function(){
-    
+
       var chosenRes = $("#resState").val(); //get state fist two inital letters
       var chosenBuldingType2 = $("#residential").val(); //get COM or RES
       
@@ -1350,22 +1424,22 @@ $("#residential1").click(function (){
       "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"];
 
       var getRes = states[parseInt(chosenRes)-1].toUpperCase();
-    
+
       var dash ='-';
       var restWord = '.M';
 
       //state conversion
       //callApiForRes = "http://api.eia.gov/series/?api_key=&series_id=ELEC.PRICE.";
       //callApiForRes +=  getRes + dash + chosenBuldingType2 + restWord;
-  callApiForRes = "/resource?state=" + getRes + "&buildingType=" + chosenBuldingType2 
-  fetchResData(callApiForRes);
+      callApiForRes = "/resource?state=" + getRes + "&buildingType=" + chosenBuldingType2 
+      fetchResData(callApiForRes);
     });  
 
 
 
     $("#execute").click(function(){
 
-        $("#resultbox").text(result); 
+      $("#resultbox").text(result); 
     });
   });
 
@@ -1388,74 +1462,74 @@ $("#residential1").click(function (){
       type: "GET",
       success:function(result){
       //comPrice = returnComData(result.series[0].data[0][1]);
-  comPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
-  console.log("comPrice: " + comPrice);
-  commercialCal('comRoomType','numOfRoom','comBulbList','comNumOfBulb','getslide',comPrice);
-      }
-    });   
-}
+      comPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
+      console.log("comPrice: " + comPrice);
+      commercialCal('comRoomType','numOfRoom','comBulbList','comNumOfBulb','getslide',comPrice);
+    }
+  });   
+  }
 
   function fetchResData(url){       
-      $.ajax({
-        url:url,
-        dataType: "json",
-        type: "GET",
-        success:function(result){
+    $.ajax({
+      url:url,
+      dataType: "json",
+      type: "GET",
+      success:function(result){
         //resPrice = returnResData(result.series[0].data[0][1]);
-  resPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
-  console.log("resPrice" + resPrice)
-  residentialCal(resPrice,'resBulbList', 'resNumOfBulb','resNumOfHour', 'sliderForRes', resPrice)
+        resPrice = returnComData(JSON.parse(result.body).series[0].data[0][1]);
+        console.log("resPrice" + resPrice)
+        residentialCal(resPrice,'resBulbList', 'resNumOfBulb','resNumOfHour', 'sliderForRes', resPrice)
         // console.log("here is URL: "+ url)
-          }
-      });
+      }
+    });
   }
   //putting html code into javascript variable to create a row of buttons when you click Add button
-    var com= '<tr><div id ="hideOptions"><td style="display: inline-block;"><select  class="roomTypeOption" id="comRoomType1" data-style="btn-primary">\
-      <option class="Not Specified" selected>Room Type</option>\
-      <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom</option>\
-      <option class="dropdown-item" href="#" value="10.32"  data-subtext="10.32 Hours Wasted">Classroom</option>\
-      <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>\
-      <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option>\
-      <option class="dropdown-item" href="#" value="7.56" data-subtext="7.56 Hours Wasted">Office, Private</option>\
-      <option class="dropdown-item" href="#" value="2.4"  data-subtext="2.4 Hours Wasted">Office, Open</option>\
-      <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>\
-      <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>\
-      <option class="dropdown-item" href="#" value="10.68"  data-subtext="10.68 Hours Wasted">Warehouse</option>\
-      </select></td>\
-      <td style="display: inline-block;"><input class = "numOfRoomOption" type="text" name="nubmer" id="numOfRoom1"  placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
-      </td>\
-      <td style="display: inline-block;"><select   class="bulbListForComOption"  id="comBulbList1" data-style="btn-primary" >\
-      <option class="Not Specified" selected>Select Bulb Type</option>\
-      <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option>\
-      <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>\
-      <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option>\
-      <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>\
-      <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>\
-      </select ></td>\
-      <td style="display: inline-block;">\
-      <input type="text" name="nubmer" id="comNumOfBulb1" placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
-      </td>\
-      <td style="display: inline-block;"> <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148);"></i></td></div></tr>';
-    
-    var res = '<tr><td style="display: inline-block;"><select class="bulbListForRes" id="resBulbList1"  data-style="btn-primary" >\
-      <option class="Not Specified" selected>Select Bulb Type</option>\
-      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> \
-      <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  \
-      <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> \
-      <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>\
-      <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   \
-      </select> </td>\
-      <td style="display: inline-block;"><div   id="numOfBulbForRes">\
-      <input type="text" name="nubmer" id="resNumOfBulb1"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
-      </div> </td>\
-        <td style="display: inline-block;"><div   id="numOfHourForRes">\
-        <input type="text" name="numbmer" id="resNumOfHour1"   placeholder="# of hours wasted" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
-      </div></td>\
-      <td style="display: inline-block;"><i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i></td></td></tr>';
-      
+  var com= '<tr><div id ="hideOptions"><td style="display: inline-block;"><select  class="roomTypeOption" id="comRoomType1" data-style="btn-primary">\
+  <option class="Not Specified" selected>Room Type</option>\
+  <option class="dropdown-item" href="#" value="6.96"  data-subtext="6.96 Hours Wasted">Breakroom</option>\
+  <option class="dropdown-item" href="#" value="10.32"  data-subtext="10.32 Hours Wasted">Classroom</option>\
+  <option class="dropdown-item" href="#" value="10.8"  data-subtext="10.8 Hours Wasted">Conference Room</option>\
+  <option class="dropdown-item" href="#" value ="13.2" data-subtext="13.2 Hours Wasted">Corridor</option>\
+  <option class="dropdown-item" href="#" value="7.56" data-subtext="7.56 Hours Wasted">Office, Private</option>\
+  <option class="dropdown-item" href="#" value="2.4"  data-subtext="2.4 Hours Wasted">Office, Open</option>\
+  <option class="dropdown-item" href="#" value="14.4"  data-subtext="14.4 Hours Wasted">Restroom</option>\
+  <option class="dropdown-item" href="#" value="15.0"  data-subtext="15.0 Hours Wasted">Storage Area</option>\
+  <option class="dropdown-item" href="#" value="10.68"  data-subtext="10.68 Hours Wasted">Warehouse</option>\
+  </select></td>\
+  <td style="display: inline-block;"><input class = "numOfRoomOption" type="text" name="nubmer" id="numOfRoom1"  placeholder="# of Rooms" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+  </td>\
+  <td style="display: inline-block;"><select   class="bulbListForComOption"  id="comBulbList1" data-style="btn-primary" >\
+  <option class="Not Specified" selected>Select Bulb Type</option>\
+  <option class="dropdown-item" href="#" value="67"  data-subtext="67 Watts">Incandescent</option>\
+  <option class="dropdown-item" href="#" value="60"  data-subtext="60 Watts">Halogen</option>\
+  <option selected class="dropdown-item" href="#" value ="32" data-subtext="32 Watts">Linear Fluorescent</option>\
+  <option class="dropdown-item" href="#" value="19"  data-subtext="19 Watts">LED</option>\
+  <option class="dropdown-item" href="#" value="17"  data-subtext="17 Watts">Other</option>\
+  </select ></td>\
+  <td style="display: inline-block;">\
+  <input type="text" name="nubmer" id="comNumOfBulb1" placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+  </td>\
+  <td style="display: inline-block;"> <i class="far fa-trash-alt fa-2x"  id="removeForCom" class="remove" style="color:rgb(148, 148, 148);"></i></td></div></tr>';
+
+  var res = '<tr><td style="display: inline-block;"><select class="bulbListForRes" id="resBulbList1"  data-style="btn-primary" >\
+  <option class="Not Specified" selected>Select Bulb Type</option>\
+  <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Incandescent</option> \
+  <option class="dropdown-item" href="#" value="58"  data-subtext="58W">Halogen</option>  \
+  <option selected class="dropdown-item" href="#" value ="38" data-subtext="38W">Linear Fluorescent</option> \
+  <option class="dropdown-item" href="#" value="10"  data-subtext="10W">LED</option>\
+  <option class="dropdown-item" href="#" value="55"  data-subtext="55W">Other</option>   \
+  </select> </td>\
+  <td style="display: inline-block;"><div   id="numOfBulbForRes">\
+  <input type="text" name="nubmer" id="resNumOfBulb1"  placeholder="# of bulbs" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+  </div> </td>\
+  <td style="display: inline-block;"><div   id="numOfHourForRes">\
+  <input type="text" name="numbmer" id="resNumOfHour1"   placeholder="# of hours wasted" aria-label="Large" aria-describedby="inputGroup-sizing-sm" >\
+  </div></td>\
+  <td style="display: inline-block;"><i class="far fa-trash-alt fa-2x"  id="removeForRes" class="remove" style="color:rgb(148, 148, 148);"></i></td></td></tr>';
+
 
   ///////////////////////sorting tables of button////////////////////////////
-    $( document ).ready(function(){
+  $( document ).ready(function(){
     $('tbody').sortable();
 
     $('#addRowForCom').click(function(){
@@ -1489,10 +1563,10 @@ $("#residential1").click(function (){
   $("#comRoomType").change( optionUpdateForCom);
   //# of room
   $("#numOfRoom").change( optionUpdateForCom);
-      
+
   //bulb type 
   $("#comBulbList").change(optionUpdateForCom);
-    
+
   //# of room 
   $("#comNumOfBulb").change( optionUpdateForCom);
 
@@ -1621,7 +1695,7 @@ function optionUpdateForCom(){
     this.numOfRoom =currow.find('td:eq(1)').find("input").val();
     this.bulbType =currow.find('td:eq(2)').find("select").val();
     this.numOfBulb =currow.find('td:eq(3)').find("input").val();
-var slide = document.getElementById('comSlideId').value;
+    var slide = document.getElementById('comSlideId').value;
 
     //console.log("roomType: " + this.roomType +" numOfRoom: " + this.numOfRoom+" bulbType: " + this.bulbType+" numOfBulb: " + this.numOfBulb+" slide: "+ slide );
     test =  commercialCal('comState',this.roomType,this.numOfRoom,this.bulbType,this.numOfBulb, slide, comPrice);
@@ -1630,215 +1704,217 @@ var slide = document.getElementById('comSlideId').value;
     
     console.log("Com col" + counter+": " +test );
   }); co2calcForCom(result,'comState');
-    returnNumb(result,led);
+  returnNumb(result,led);
 
-document.getElementById("elecForCom").innerHTML  = "$" +   numberWithCommas((result).toFixed(0) );
+  document.getElementById("elecForCom").innerHTML  = "$" +   numberWithCommas((result).toFixed(0) );
 }
 
 
 </script>
 <script>
 
-function returnNumb(firstYear,ledFirstYear){
-  
-var second =firstYear*2;
-var third =firstYear*3;
+  function returnNumb(firstYear,ledFirstYear){
 
-var forth =firstYear*4;
-var fith =firstYear*5;
+    var second =firstYear*2;
+    var third =firstYear*3;
 
-var ledSecond =ledFirstYear*2;
-var ledThird =ledFirstYear*3;
+    var forth =firstYear*4;
+    var fith =firstYear*5;
 
-var ledForth =ledFirstYear*4;
-var ledFith =ledFirstYear*5;
+    var ledSecond =ledFirstYear*2;
+    var ledThird =ledFirstYear*3;
+
+    var ledForth =ledFirstYear*4;
+    var ledFith =ledFirstYear*5;
 
 
 
-var canvas = document.getElementById('myChart');
-var data = {
-    labels: ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years"],
-    datasets: [
-        {
-            label: "Your Choice",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(68, 173, 213, 0.4)",
-            borderColor: "rgba(68, 173, 213, 1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(68, 173, 213, 1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: [firstYear, second, third, forth, fith],
-          },
-        {
-
-          label: "LED",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgba(244, 238, 66, 0.4)",
-          borderColor: "rgba(244, 238, 66, 1)",  
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "rgba(244, 238, 66, 1)",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 5,
-          pointHitRadius: 10,
-          data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
-
-          },
-        {
-
-          label: "Snap-On Device",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgba(113, 244, 65, 0.4)",
-          borderColor: "rgba(113, 244, 65, 1)",  
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "rgba(113, 244, 65, 1)",
-          pointBackgroundColor: "#fff",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
-          pointHoverBorderColor: "rgba(220,220,220,1)",
-          pointHoverBorderWidth: 2,
-          pointRadius: 5,
-          pointHitRadius: 10,
-          data: [0, 0, 0, 0, 0],
-
-        }
-    ]
-};
-
-var option = {
-  showLines: true
-};
-var myLineChart = Chart.Line(canvas,{
-  data:data,
-  options:option
-  });
-
-}
-returnNumb();
-
-function returnNumb1(firstYear,ledFirstYear){
-  
-  var second =firstYear*2;
-  var third =firstYear*3;
-  
-  var forth =firstYear*4;
-  var fith =firstYear*5;
-  
-  var ledSecond =ledFirstYear*2;
-  var ledThird =ledFirstYear*3;
-  
-  var ledForth =ledFirstYear*4;
-  var ledFith =ledFirstYear*5;
-  
-  
-  
-  var canvas = document.getElementById('myChart1');
-  var data = {
+    var canvas = document.getElementById('myChart');
+    var data = {
       labels: ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years"],
       datasets: [
-          {
-              label: "Your Choice",
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(68, 173, 213, 0.4)",
-              borderColor: "rgba(68, 173, 213, 1)",
-              borderCapStyle: 'butt',
-              borderDash: [],
-              borderDashOffset: 0.0,
-              borderJoinStyle: 'miter',
-              pointBorderColor: "rgba(68, 173, 213, 1)",
-              pointBackgroundColor: "#fff",
-              pointBorderWidth: 1,
-              pointHoverRadius: 5,
-              pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
-              pointHoverBorderColor: "rgba(220,220,220,1)",
-              pointHoverBorderWidth: 2,
-              pointRadius: 5,
-              pointHitRadius: 10,
-              data: [firstYear, second, third, forth, fith],
-          },
-          {
-  
-            label: "LED",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(244, 238, 66, 0.4)",
-            borderColor: "rgba(244, 238, 66, 1)",  
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(244, 238, 66, 1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
-  
-          },
-          {
-  
-            label: "Snap-On Device",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(113, 244, 65, 0.4)",
-            borderColor: "rgba(113, 244, 65, 1)",  
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(113, 244, 65, 1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: [0, 0, 0, 0, 0],
-  
-          }
+      {
+        label: "Your Choice",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(68, 173, 213, 0.4)",
+        borderColor: "rgba(68, 173, 213, 1)",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(68, 173, 213, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [firstYear, second, third, forth, fith],
+      },
+      {
+
+        label: "LED",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(244, 238, 66, 0.4)",
+        borderColor: "rgba(244, 238, 66, 1)",  
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(244, 238, 66, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
+
+      },
+      {
+
+        label: "Snap-On Device",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(113, 244, 65, 0.4)",
+        borderColor: "rgba(113, 244, 65, 1)",  
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(113, 244, 65, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [0, 0, 0, 0, 0],
+
+      }
       ]
-  };
+    };
 
-  var option = {
-    showLines: true
-  };
-  var myLineChart = Chart.Line(canvas,{
-    data:data,
-    options:option
+    var option = {
+      showLines: true
+    };
+    var myLineChart = Chart.Line(canvas,{
+      data:data,
+      options:option
+    });
 
-  }); 
-}
-returnNumb1();
+  }
+  returnNumb();
+
+  function returnNumb1(firstYear,ledFirstYear){
+
+    var second =firstYear*2;
+    var third =firstYear*3;
+
+    var forth =firstYear*4;
+    var fith =firstYear*5;
+
+    var ledSecond =ledFirstYear*2;
+    var ledThird =ledFirstYear*3;
+
+    var ledForth =ledFirstYear*4;
+    var ledFith =ledFirstYear*5;
+
+
+
+    var canvas = document.getElementById('myChart1');
+    var data = {
+      labels: ["1 Year", "2 Years", "3 Years", "4 Years", "5 Years"],
+      datasets: [
+      {
+        label: "Your Choice",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(68, 173, 213, 0.4)",
+        borderColor: "rgba(68, 173, 213, 1)",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(68, 173, 213, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(68, 173, 213, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [firstYear, second, third, forth, fith],
+      },
+      {
+
+        label: "LED",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(244, 238, 66, 0.4)",
+        borderColor: "rgba(244, 238, 66, 1)",  
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(244, 238, 66, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(244, 238, 66, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [ledFirstYear, ledSecond, ledThird, ledForth, ledFith],
+
+      },
+      {
+
+        label: "Snap-On Device",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(113, 244, 65, 0.4)",
+        borderColor: "rgba(113, 244, 65, 1)",  
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(113, 244, 65, 1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(113, 244, 65, 1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        pointHitRadius: 10,
+        data: [0, 0, 0, 0, 0],
+
+      }
+      ]
+    };
+
+    var option = {
+      showLines: true
+    };
+    var myLineChart = Chart.Line(canvas,{
+      data:data,
+      options:option
+
+    }); 
+  }
+  returnNumb1();
 </script>
+
+
 </html>
